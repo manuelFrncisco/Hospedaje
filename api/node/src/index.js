@@ -1,10 +1,11 @@
-import { http } from 'node:http';
+const express = require('express');
+const http = require('node:http');
 
-const server = http.createServer((req, res) => {
+const server = http.createServer((req, res) =>{
     console.log('request received')
     res.end('Hola')
 })
 
-server.listen(0, () => {
-    console.log(`servidor listening on port http://localhost:${server.address().port}`)
+server.listen(0, () =>{
+    console.log(`servidor listening on port http://localhost:${server.address().port}` )
 })

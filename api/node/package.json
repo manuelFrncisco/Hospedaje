@@ -1,19 +1,19 @@
 {
-  "name": "node",
+  "name": "repaho-prueba-node",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
-    "mysql2": "^3.7.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
     "nodemon": "^3.0.2"
   }
 }
