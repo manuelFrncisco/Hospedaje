@@ -1,6 +1,13 @@
 <?php
 
+use App\Http\Controllers\Api\locationController;
+use App\Http\Controllers\Api\commentController;
+use App\Http\Controllers\Api\lodgingController;
+use App\Http\Controllers\Api\ofertController;
+use App\Http\Controllers\Api\ratingController;
+use App\Http\Controllers\Api\reservationController;
 use Illuminate\Http\Request;
+use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,3 +24,23 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/locations', [locationController::class, 'list']);
+Route::get('/locations/{id}', [locationController::class,'show']);
+Route::post('/locations/create', [locationController::class,'create']);
+Route::post('/locations/{id}/update', [locationController::class, 'updated']);
+
+Route::get('/comments',[commentController::class,'list']);
+Route::get('/comments/{id}',[commentController::class,'show']);
+
+Route::get('/lodgings', [lodgingController::class , 'list']);
+Route::get('lodgings/{id}', [lodgingController::class,'show']);
+
+Route::get('/oferts', [ofertController::class,'list']);
+Route::get('oferts/{id}',[ofertController::class,'show']);
+
+Route::get('/ratings', [ratingController::class,'list']);
+Route::get('/ratings/{id}', [ratingController::class,'show']);
+
+Route::get('/reservations',[reservationController::class,'list']);
+Route::get('/reservations/{id}',[reservationController::class,'show']);
