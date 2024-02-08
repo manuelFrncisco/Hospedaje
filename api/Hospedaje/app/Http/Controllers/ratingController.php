@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ratingController extends Controller
+class RatingController extends Controller
 {
-    //
+    public function index(){
+        return view("admin.ratings.index");
+    }
 }

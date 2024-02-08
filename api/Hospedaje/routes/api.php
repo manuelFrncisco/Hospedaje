@@ -32,15 +32,25 @@ Route::post('/locations/{id}/update', [locationController::class, 'updated']);
 
 Route::get('/comments',[commentController::class,'list']);
 Route::get('/comments/{id}',[commentController::class,'show']);
+Route::post('/comments/create',[commentController::class,'create']);
+Route::post('/comments',[commentController::class,'update']);
 
 Route::get('/lodgings', [lodgingController::class , 'list']);
-Route::get('lodgings/{id}', [lodgingController::class,'show']);
+Route::get('/lodgings/{id}', [lodgingController::class,'show']);
+Route::post('/lodgings/create', [lodgingController::class,'create']);
+Route::post('/lodgings', [lodgingController::class,'updated']);
 
 Route::get('/oferts', [ofertController::class,'list']);
-Route::get('oferts/{id}',[ofertController::class,'show']);
+Route::get('/oferts/{id}',[ofertController::class,'show']);
+Route::post('/oferts/create', [ofertController::class,'create']);
+Route::post('/oferts', [ofertController::class,'updated']);
 
 Route::get('/ratings', [ratingController::class,'list']);
 Route::get('/ratings/{id}', [ratingController::class,'show']);
+Route::post('/ratings/create', [ratingController::class,'create']);
+Route::post('/ratings', [ratingController::class,'updated']);
 
 Route::get('/reservations',[reservationController::class,'list']);
 Route::get('/reservations/{id}',[reservationController::class,'show']);
+Route::post('/reservations/create',[reservationController::class,'create']);
+Route::post('/reservations',[reservationController::class,'updated']);
