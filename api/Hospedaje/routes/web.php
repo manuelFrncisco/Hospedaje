@@ -5,6 +5,7 @@ use App\Http\Controllers\locationController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LodgingController;
 use App\Http\Controllers\OfertController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserController;
@@ -34,3 +35,4 @@ Route::get('/admin/calificacion', [RatingController::class,'index'])->name('admi
 Route::get('/admin/localizacion', [locationController::class,'index'])->name('admin.locations.index');
 Route::get('/admin/alojamiento', [LodgingController::class,'index'])->name('admin.lodgings.index');
 Route::get('/admin/ofertas', [OfertController::class,'index'])->name('admin.users.index');
+Route::get('/page',[PageController::class,'index'])->name('page');
