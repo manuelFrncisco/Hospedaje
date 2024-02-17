@@ -34,9 +34,8 @@ Route::get('/admin/localizacion', [locationController::class,'index'])->name('ad
 Route::get('/admin/alojamiento', [LodgingController::class,'index'])->name('admin.lodgings.index');
 Route::get('/admin/ofertas', [OfertController::class,'index'])->name('admin.users.index');
 Route::get('/page',[PageController::class,'index'])->name('page');
-Route::get('/user', [PerfilController::class, 'index'])->name('perfil');
-Route::get('/user/perfil', [PerfilController::class, 'index'])->name('perfil-edit');
-
-
+Route::get('/user', [PerfilController::class, 'index'])->name('perfil')->middleware('auth');
+Route::get('/user/perfil', [PerfilController::class, 'edit'])->name('perfil_update')->middleware('auth');
+Route::post('/user/update', [PerfilController::class, 'update'])->middleware('auth');
 
 Auth::routes();

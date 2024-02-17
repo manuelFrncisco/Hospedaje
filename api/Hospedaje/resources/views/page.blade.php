@@ -15,7 +15,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$lodging->name}}</h5>
                             <p class="card-text">{{$lodging->location->streep}}</p>
-                            <p class="card-text bg-danger rounded-1 p-1 text-white">{{$lodging->package->page}}</p>
+                            <p class="card-text bg-danger rounded-1 p-1 text-white">$ {{$lodging->package->page}}</p>
                         </div>
                     </div>
                 </div>

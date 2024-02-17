@@ -15,9 +15,9 @@
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
               alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
               <!-- Nombre de usuario-->
-              <h6 class="text-black">Marie Horwitz</h6>
+              <h6 class="text-black">{{$user->name}}</h6>
               <!-- SurName de usuario-->
-              <h6 class="text-black">Marie Horwitz</h6>
+              <h6 class="text-black">{{$user->surname}}</h6>
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">
@@ -26,16 +26,16 @@
                 <div class="row pt-1">
                   <div class="col-6 mb-3">
                     <h6>Email</h6>  
-                    <p class="text-muted">info@example.com</p> <!-- Email de usuario -->
+                    <p class="text-muted">{{$user->email}}</p> <!-- Email de usuario -->
                   </div> 
                   <div class="col-6 mb-3">
                     <h6>Phone</h6>
-                    <p class="text-muted">123 456 789</p> <!-- Telefono -->
+                    <p class="text-muted">{{$user->phone}}</p> <!-- Telefono -->
                   </div>
                 </div>
                 <hr class="mt-0 mb-4">
                 <div class="d-flex justify-content-start">
-                  <a href="#!" class="btn bsb-btn-xl btn-editar text-white">Editar</a>
+                  <a href="/user/perfil" class="btn bsb-btn-xl btn-editar text-white">Editar</a>
                 </div>
               </div>
             </div>
