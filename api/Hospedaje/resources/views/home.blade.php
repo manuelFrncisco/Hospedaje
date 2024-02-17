@@ -1,13 +1,19 @@
-@extends('layout.main')
+@extends('layouts.app')
 @section('title', 'WelcomeNest')
 
 @section('content')
-<section class="menu">
-    <h1>WelcomeNest</h1>
-    <p>¿Buscando donde Hospedarte? WelcomeNest teniendo 150,000 lugares donde puedas hospedarte. Nos enorgullece
-        presentar una solución integral diseñada para transformar por completo tu experiencia de hospedaje y
-        hacer que cada viaje sea inolvidable.</p>
-    <button>Busqueda</button>
+
+<section class="menu container">
+    <div class="col m-5 mt-6 mb-6">
+        <h1 class="text-break">WelcomeNest</h1>
+        <p class="text-break">¿Buscando donde Hospedarte? WelcomeNest teniendo 150,000 lugares donde puedas hospedarte.
+            Nos enorgullece
+            presentar una solución integral diseñada para transformar por completo tu experiencia de hospedaje y
+            hacer que cada viaje sea inolvidable.</p>
+
+        <a class="btn bsb-btn-xl btn-danger" href="/page">Busqueda</a>
+
+    </div>
 </section>
 <section class='slider'>
     <div class='slide'>
@@ -26,7 +32,7 @@
 <section class="info">
     <img src='./image/pexels-asad-photo-maldives-1268855.jpg' alt="" />
     <div>
-        <p>Imagina tener el mundo de los alojamientos al alcance de tus manos. Con nuestra plataforma, encontrar
+        <p class="">Imagina tener el mundo de los alojamientos al alcance de tus manos. Con nuestra plataforma, encontrar
             el lugar perfecto para hospedarte nunca ha sido tan fácil. Ya sea que estés planeando unas
             vacaciones en familia, un viaje de negocios o una escapada de fin de semana, te ofrecemos una amplia
             variedad de opciones para que encuentres el alojamiento ideal que se ajuste a tus necesidades y
@@ -81,7 +87,7 @@
             planificación de viajes!</p>
     </div>
 </section>
-<footer>
+<footer class="text-center pb-2">
     <h2>Manuel Francisco Amavizca Barrios</h2>
     <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
         fill="currentColor" viewBox="0 0 24 24">
@@ -108,4 +114,5 @@
     </svg>
 
 </footer>
+
 @endsection

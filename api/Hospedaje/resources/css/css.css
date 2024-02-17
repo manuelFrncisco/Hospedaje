@@ -13176,22 +13176,30 @@ body {
   border-radius: 0.375rem !important;
 }
 
-#navigation_relative{
-  position:relative;
-  top:20px; 
+#navigation_relative {
+  position: relative;
+  top: 20px;
   left: 120px;
 }
 
-.button_svg{
+.button_svg {
   background-color: #10898B;
   transition: ease-in 0.5s background-color;
 }
 
-.button_svg:hover{
+.button_svg:hover {
   background-color: #16e4e7;
   color: white;
 }
 
-.button_svg svg:hover{
+.button_svg svg:hover {
   color: white;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 405;
+  font-style: normal;
+
 }

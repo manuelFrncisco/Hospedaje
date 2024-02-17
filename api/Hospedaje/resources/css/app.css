@@ -3,21 +3,18 @@ body {
     padding: 0;
     height: auto;
     place-items: center;
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
-    font-weight: 400;
+    
     padding: 0;
     background-color: #f0ebdf;
 }
 
-p {
-    font-size: 0.8rem;
-}
-
 h1 {
     color: rgb(253, 148, 7);
-    font-size: 4.2em;
     line-height: 1.1;
+    margin-top:30px ;
+    font-size: 90px;
+    margin-bottom:30px;
 }
 
 button {
@@ -47,29 +44,10 @@ button:focus-visible {
 .menu {
     text-align: center;
     display: flex;
+    padding:150px;
     flex-direction: column;
-    height: 100vh;
     align-items: center;
     justify-content: center;
-}
-
-.menu h1 {
-    font-size: 8.5rem;
-    margin: 20px;
-}
-
-.menu p {
-    margin-left: 250px;
-    margin-right: 250px;
-    font-size: 1.3rem;
-}
-
-section img {
-    border-radius: 4px;
-    background-color: rgba(0, 0, 0, 0.412);
-    width: 00px;
-    margin: 20px;
-    height: 300px;
 }
 
 .sect {
@@ -90,11 +68,11 @@ section img {
 .info li {
     text-align: start;
     margin: 15px;
-    font-size: 20px;
+  
 }
 
 .info h2 {
-    font-size: 40px;
+   
     text-align: start;
 }
 
@@ -117,7 +95,7 @@ section img {
 }
 
 .info p {
-    font-size: 1.1rem;
+    
     text-align: left;
     margin: 70px;
 }
@@ -144,7 +122,6 @@ section img {
     top: 45%;
     left: 49%;
     color: white;
-    font-size: 30px;
     transform: translate(-50%, -50%);
     opacity: 0;
     transition: 0.2s ease;
@@ -190,18 +167,6 @@ section img {
     padding: 15px;
 }
 
-.grid div h3 {
-    font-size: 70px;
-}
-
-.grid div h2 {
-    font-size: 80px;
-    margin: 0;
-}
-
-.grid div p {
-    font-size: 30px;
-}
 
 .grid div:first-child {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -484,3 +449,11 @@ svg:hover {
     
 }
 
+.btn-editar {
+    background-color:#10898B;
+    transition: ease all 0.5s;
+}
+
+.btn-editar:hover{
+    background-color:#14b3b6 ;
+}

@@ -1,4 +1,4 @@
-@extends('layout.panel')
+@extends('layouts.panel')
 @section('title', 'WelcomeNest - Admin')
 
 @section('content')

@@ -10,6 +10,21 @@ class Lodging extends Model
     use HasFactory;
 
     protected $fillable = [
-        "name","description","image","page","backroom","ofert_id","location_id"
-    ] ;
+        "name",
+        "description",
+        "image",
+        "package_id",
+        "backroom",
+        "ofert_id",
+        "location_id",
+
+    ];
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
 }

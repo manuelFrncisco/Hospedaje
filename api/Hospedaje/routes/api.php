@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\lodgingController;
 use App\Http\Controllers\Api\ofertController;
 use App\Http\Controllers\Api\ratingController;
 use App\Http\Controllers\Api\reservationController;
+use App\Http\Controllers\Api\PackageController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -54,3 +55,8 @@ Route::get('/reservations',[reservationController::class,'list']);
 Route::get('/reservations/{id}',[reservationController::class,'show']);
 Route::post('/reservations/create',[reservationController::class,'create']);
 Route::post('/reservations',[reservationController::class,'updated']);
+
+Route::get('/packages', [PackageController::class, 'list']);
+Route::get('/packages/{id}', [PackageController::class,'show']);
+Route::post('/packages/create',[PackageController::class,'create']);
+Route::post('/packages',[PackageController::class, 'updated']);
