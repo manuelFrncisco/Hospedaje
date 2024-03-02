@@ -67,7 +67,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary" href="/">
                                         {{ __('Login') }}
                                     </button>
 

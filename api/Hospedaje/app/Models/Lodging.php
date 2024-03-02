@@ -13,18 +13,30 @@ class Lodging extends Model
         "name",
         "description",
         "image",
-        "package_id",
+        "page",
+        "start_range",
+        "end_range",
         "backroom",
         "ofert_id",
         "location_id",
+        "user_id"
 
     ];
     public function location()
     {
         return $this->belongsTo(Location::class);
     }
-    public function package()
+
+    public function city(){
+        return $this->belongsTo(City::class);
+    }
+
+    public function country(){
+        return $this->belongsTo(Country::class);
+    }
+
+    public function user()
     {
-        return $this->belongsTo(Package::class);
+        return $this->belongsTo(User::class);
     }
 }

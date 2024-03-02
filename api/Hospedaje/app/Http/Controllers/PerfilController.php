@@ -10,7 +10,7 @@ class PerfilController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('home');
+        $this->middleware('auth');
 
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\locationController;
 use App\Http\Controllers\Api\commentController;
 use App\Http\Controllers\Api\lodgingController;
@@ -25,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 
 Route::get('/locations', [locationController::class, 'list']);
 Route::get('/locations/{id}', [locationController::class,'show']);
@@ -56,7 +58,4 @@ Route::get('/reservations/{id}',[reservationController::class,'show']);
 Route::post('/reservations/create',[reservationController::class,'create']);
 Route::post('/reservations',[reservationController::class,'updated']);
 
-Route::get('/packages', [PackageController::class, 'list']);
-Route::get('/packages/{id}', [PackageController::class,'show']);
-Route::post('/packages/create',[PackageController::class,'create']);
-Route::post('/packages',[PackageController::class, 'updated']);
+Route::post('/login',[AuthController::class, 'login']);
