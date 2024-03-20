@@ -11,10 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table("packages", function (Blueprint $table) {
-            $table->unsignedBigInteger("lodging_id");
-          $table->foreign("lodging_id")->references("id")->on("lodgings");
-        });
+       
     }
 
     /**
@@ -22,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('packages');
+       
     }
 };

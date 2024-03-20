@@ -11,10 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('country', function (Blueprint $table) {
-            $table->unsignedBigInteger('city_id')->change();
-            $table->foreign('city_id')->references('id')->on('city');
-        });
+    
     }
 
     /**
@@ -22,6 +19,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('country');
+    
     }
 };

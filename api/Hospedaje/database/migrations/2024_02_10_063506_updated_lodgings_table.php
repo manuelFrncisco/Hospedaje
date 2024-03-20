@@ -10,9 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::table("lodgings", function (Blueprint $table) {
-            $table->foreign('ofert_id')->references('id')->on('oferts');
-        });
+       
 
     }
 
@@ -21,6 +19,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('lodgings');
+        
     }
 };
