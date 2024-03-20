@@ -10,5 +10,11 @@ class Location extends Model
     use HasFactory;
 
     protected $fillable = [
-        "streep","city","country","postal", "country_id"] ;
-}
+        "streep","postal", "country_id"] ;
+
+        public function country()
+        {
+            return $this->belongsTo(Country::class);
+        }
+    }
+

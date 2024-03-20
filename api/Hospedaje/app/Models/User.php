@@ -56,4 +56,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Lodging::class);
     }
+
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class);
+    }
 }

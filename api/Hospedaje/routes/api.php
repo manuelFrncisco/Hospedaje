@@ -55,7 +55,10 @@ Route::post('/ratings', [ratingController::class,'updated']);
 
 Route::get('/reservations',[reservationController::class,'list']);
 Route::get('/reservations/{id}',[reservationController::class,'show']);
-Route::post('/reservations/create',[reservationController::class,'create']);
+Route::post('/reserva/create',[reservationController::class,'create']);
 Route::post('/reservations',[reservationController::class,'updated']);
 
 Route::post('/login',[AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::get('/profile', [AuthController::class,'show'])->middleware('auth:api');
+

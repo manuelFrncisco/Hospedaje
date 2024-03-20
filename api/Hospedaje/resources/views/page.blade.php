@@ -5,6 +5,13 @@
 @section('content')
 <div class="container">
     <div class="row">
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+
         @foreach($lodgings as $lodging)
         <div class="col col-md-3 pt-5 mt-5 bsb-tpl-bg-platinum">
             <a class="text-decoration-none text-black" href="{{ route('show', $lodging->id) }}">

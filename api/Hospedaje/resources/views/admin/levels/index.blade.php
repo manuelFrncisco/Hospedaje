@@ -2,10 +2,9 @@
 @section('title', 'WelcomeNest - Admin')
 
 @section('content')
-
-<main>
+        <main>
             <div class="container-fluid px-4">
-                <h2 class="mt-4">Usuarios</h2>
+                <h2 class="mt-4">Nivel</h2>
                 <ol class="breadcrumb mb-4">
                     <a class="breadcrumb-item active" href="/admin">Atras</a>
                 </ol>
@@ -17,24 +16,16 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Name</th>
-                                    <th>SurName</th>
-                                    <th>Phone</th>
-                                    <th>Email</th>
-                                    <th>Status</th>
-                                    <th>Level_id</th>
+                                    <th>Nombre</th>
+                                    <th>Estado</th>                                   
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($users as $user)
+                                @foreach ($levels as $level)
                                     <tr>
-                                        <td>{{ $user->id }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->surname }}</td>
-                                        <td>{{ $user->phone }}</td>
-                                        <td>{{ $user->email }}</td>
-                                        <td>{{ $user->status }}</td>
-                                        <td>{{ $user->level_id }}</td>
+                                        <td>{{ $level->id }}</td>
+                                        <td>{{ $level->name }}</td>
+                                        <td>{{ $level->status }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -43,4 +34,4 @@
                 </div>
             </div>
         </main>
-  @endsection
+@endsection()

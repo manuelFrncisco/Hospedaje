@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Reservation;
 
 class PerfilController extends Controller
 {
@@ -17,8 +18,9 @@ class PerfilController extends Controller
     public function index()
     {
         $user = Auth::user();
-
-        return view("perfil", compact('user'));
+        $reservations = Reservation::where('user_id', $user->id)->with('lodging')->get();
+        
+        return view("perfil", compact('user', 'reservations'));
     }
 
     public function perfiledit()
@@ -45,6 +47,15 @@ class PerfilController extends Controller
         $user->save();
 
         return redirect('/user')->with('success', 'Perfil actualizado exitosamente');
+    }
+
+    public function dropReservation($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        $reservation ->delete();
+
+        return back()->with('success', 'Reservacion eliminado correctamente');
+
     }
 
 

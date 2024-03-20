@@ -22,6 +22,17 @@ class Lodging extends Model
         "user_id"
 
     ];
+
+    public function comment()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class);
+    }
+
     public function location()
     {
         return $this->belongsTo(Location::class);
@@ -38,5 +49,9 @@ class Lodging extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function ofert()
+    {
+        return $this->belongsTo(Ofert::class);
     }
 }

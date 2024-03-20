@@ -55,7 +55,7 @@
     </div>
     <img src='./image/pexels-pixabay-259685.jpg' alt="" />
 </section>
-<section class='grid'>
+<section class='division'>
     <div>
         <h2>Reserva en cualquier Hotel</h2>
         <p>Una forma mas sencilla de poder encontrar un lugar comodo y barato en cualquier lugar.</p>

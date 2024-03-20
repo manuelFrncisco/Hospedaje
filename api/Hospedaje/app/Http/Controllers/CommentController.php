@@ -3,12 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
 class CommentController extends Controller
 {
     
     public function index(){
-        return view("admin.comments.index");
+
+        $comments = Comment::all();
+
+        return view("admin.comments.index", compact('comments'));
     }
+
+
 }
 
