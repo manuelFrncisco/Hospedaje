@@ -18,6 +18,7 @@ class ratingController extends Controller
                 "id" => $rating->id,
                 "number" => $rating->number,
                 "user_id" => $rating->user_id,
+                "reservation_id"=>$rating->reservation_id,
                 "created_at" => $rating->created_at,
                 "updated_at" => $rating->updated_at,
             ];
@@ -35,6 +36,7 @@ class ratingController extends Controller
             "id" => $rating->id,
             "number" => $rating->number,
             "user_id" => $rating->user_id,
+            "reservation_id"=>$rating->reservation_id,
             "created_at" => $rating->created_at,
             "updated_at" => $rating->updated_at,
         ];
@@ -44,12 +46,16 @@ class ratingController extends Controller
         public function create(Request $request){
             
             $data = $request->validate([
-                "number"=> "min:3",
-                "user_id"=> "max:2",
+                "number"=> "min:1",
+                "user_id"=> "max:1",
+                "reservation_id"=>"min:1",
+                "lodging_id"=>"min:1"
             ]);
             $ratings = Rating::create([
                 "number" => $data["number"],
                 "user_id"=> $data["user_id"],
+                "reservation_id"=>$data["reservation_id"],
+                "lodging_id"=>$data["lodging_id"]
             ]);
             if($ratings){
                 $object = [
@@ -66,15 +72,19 @@ class ratingController extends Controller
         }
         public function update(Request $request){
             $data = $request->validate([
-                "id"=> "required|integer|min:1",
-                "number"=> "min:3|max:20",
-                "user_id"=> "max:2",
+                "id"=> "required",
+                "number"=> "min:1|max:20",
+                "user_id"=> "max:1",
+                "reservation_id"=>"min:1",
+                "lodging_id"=>"min:1"
                 
             ]);
 
             $element = Rating::where('id', '=', $data['id'])->first();
-            $element->name = $data['number'];
-            $element->price = $data['user_id'];
+            $element->number = $data['number'];
+            $element->user = $data['user_id'];
+            $element->reservation = $data['reservation_id'];
+            $element->lodging = $data['lodging_id'];
             
             if($element->update){
                 $object = [
