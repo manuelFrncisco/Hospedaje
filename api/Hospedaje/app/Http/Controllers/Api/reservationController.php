@@ -60,7 +60,7 @@ class reservationController extends Controller
         if (auth()->check()) {
             $user_id = auth()->id();
 
-          
+
         } else {
             // El usuario no está autenticado, manejar el caso en consecuencia
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -94,33 +94,27 @@ class reservationController extends Controller
         return response()->json(['success' => 'Reserva realizada correctamente'], 200);
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         $data = $request->validate([
-            "id" => "required|integer|min:1",
-            "user_id" => "max:2",
-            "location_id" => "min:3|max:20",
-            "rating_id" => "min:3|max:20",
-            "date" => "min:3|max:20",
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
         ]);
 
-        $element = Reservation::where('id', '=', $data['id'])->first();
-        $element->user_id = $data['user_id'];
-        $element->location_id = $data['location_id'];
-        $element->location_id = $data['location_id'];
-        $element->rating_id = $data['rating_id'];
+        $reservation = Reservation::findOrFail($id);
+        $reservation->start_date = $data['start_date'];
+        $reservation->end_date = $data['end_date'];
+        $reservation->save();
 
-        if ($element->update) {
-            $object = [
-                "response" => "Success. Items is correct",
-                "date" => $element
-            ];
-            return response()->json($element);
-        } else {
-            $object = [
-                "response" => "Error: Something went wrong, please try again."
-            ];
-        }
-        return response()->json($object);
+        return redirect()->route('reservations.index')->with('success', 'Reserva actualizada correctamente');
     }
+
+    public function delete($id)
+    {
+        $reservation =Reservation::findOrFail($id);
+        $reservation-> delete();
+
+        return back()->with('success', 'Reservaacion eliminada exitosamente');
+    }
+
 }

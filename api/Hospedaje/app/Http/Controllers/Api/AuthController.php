@@ -28,6 +28,7 @@ class AuthController extends Controller
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
 
         return response([
+            
             'profile' => auth()->user(),
             'message' => 'success'
         ]);

@@ -13,6 +13,9 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
+                        <div class="mb-3">
+                            <a type="submit" href="{{route('comentarioCrear')}}" class="btn btn-success">Crear Reserva</a>
+                        </div>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
@@ -30,6 +33,17 @@
                                         <td>{{ $comment->messaje }}</td>
                                         <td>{{ $comment->user->name }}</td>
                                         <td>{{ $comment->lodging->name }}</td>
+                                        <td>
+                                            <!-- Botones de acciones -->
+                                            <a href="{{route('comentarioEditar', ['id' => $comment->id]) }}" class="btn btn-primary">Editar</a>
+                                            <form action="{{route('CommentDelete', ['id' => $comment->id])}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                            </form>
+                                            
+                                            
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

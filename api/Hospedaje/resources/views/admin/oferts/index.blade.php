@@ -27,6 +27,17 @@
                                         <td>{{ $ofert->id }}</td>
                                         <td>{{ $ofert->name }}</td>
                                         <td>{{ $ofert->price }}</td>
+                                        <td>
+                                            <!-- Botones de acciones -->
+                                            <a href="{{route('ReservationEdit', ['id' => $reservation->id]) }}" class="btn btn-primary">Editar</a>
+                                            <form action="{{route('ReservationDelete', ['id' => $reservation->id])}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                            </form>
+                                            
+                                            
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

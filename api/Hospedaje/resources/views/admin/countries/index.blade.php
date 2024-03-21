@@ -4,7 +4,7 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            <h2 class="mt-4">Nivel</h2>
+            <h2 class="mt-4">Paises</h2>
             <ol class="breadcrumb mb-4">
                 <a class="breadcrumb-item active" href="/admin">Atras</a>
             </ol>
@@ -13,7 +13,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="mb-3">
-                        <a type="submit" href="{{route('levelCrear')}}" class="btn btn-success">Crear Nivel</a>
+                        <a type="submit" href="{{route('paisCrear')}}" class="btn btn-success">Crear Paises</a>
 
                     </div>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -21,26 +21,17 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
-                                <th>Estado</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($levels as $level)
+                            @foreach ($countries as $country)
                                 <tr>
-                                    <td>{{ $level->id }}</td>
-                                    <td>{{ $level->name }}</td>
-                                    <td>{{ $level->status }}</td>
+                                    <td>{{ $country->id }}</td>
+                                    <td>{{ $country->name }}</td>
+                                    <td>{{ $country->status }}</td>
                                     <td>
-                                        <!-- Botones de acciones -->
-                                        <a href="{{ route('levelEditar', ['id' => $level->id]) }}"
+                                        <a href="{{ route('paisEditar', ['id' => $country->id]) }}"
                                             class="btn btn-primary">Editar</a>
-                                        <form action="{{ route('LevelDelete', ['id' => $level->id]) }}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                                        </form>
-
-
                                     </td>
                                 </tr>
                             @endforeach

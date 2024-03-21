@@ -9,10 +9,15 @@
                 <ol class="breadcrumb mb-4">
                     <a class="breadcrumb-item active" href="/admin">Atras</a>
                 </ol>
+                <div class="mb-3">
+                    <a type="submit" href="{{route('alojamientoCrear')}}" class="btn btn-success">Crear Alojamiento</a>
+
+                </div>
             </div>
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
+                        
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
@@ -24,9 +29,8 @@
                                     <th>Rango de Inicio</th>
                                     <th>Rango de Fin</th>
                                     <th>Baños</th>
-                                    <th>Oferta</th>
                                     <th>Localizacion</th>
-                                    <th>Usuario</th>
+                                    <th>Empresa</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,9 +44,19 @@
                                         <td>{{ $lodging->start_range}}</td>
                                         <td>{{ $lodging->end_range}}</td>
                                         <td>{{ $lodging->backroom}}</td>
-                                        <td>{{ $lodging->ofert->name}}</td>
                                         <td>{{ $lodging->location->streep }}</td>
                                         <td>{{ $lodging->user->name }}</td>
+                                        <td>
+                                            <!-- Botones de acciones -->
+                                            <a href="{{route('alojamientoEditar', ['id' => $lodging->id]) }}" class="btn btn-primary">Editar</a>
+                                            <form action="{{route('LodgingDelete', ['id' => $lodging->id])}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                            </form>
+                                            
+                                            
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

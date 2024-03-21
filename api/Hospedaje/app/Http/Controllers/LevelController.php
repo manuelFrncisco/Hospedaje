@@ -12,4 +12,55 @@ class LevelController extends Controller
 
             return view('admin.levels.index', compact('levels'));
         }
+        public function levelEditar($id)
+        {
+            $level = Level::findOrFail($id);
+            
+            return view('admin.levels.edit', compact('level'));
+        }
+
+        public function LevelEdit(Request $request, $id)
+        {
+            $data = $request->validate([
+                'name' => 'required|string',
+                'status' => 'required|integer',
+            ]);
+    
+            $reservation = Level::findOrFail($id);
+            $reservation->name = $data['name'];
+            $reservation->status = $data['status'];
+            $reservation->save();
+    
+            return redirect()->route('admin.levels.index');
+        }
+
+        public function levelCrear()
+        {
+            $level = Level::all();
+
+            return view("admin.levels.create", compact('level'));
+        }
+
+        public function LevelCreate(Request $request)
+        {
+            $request->validate([
+                'name' => 'required|string',
+                'status' => 'required|integer',
+            ]);
+        
+            $level = new Level();
+            $level->name = $request->input('name');
+            $level->status = $request->input('status');
+            $level->save();
+        
+            return redirect('admin.levels.index');
+        }
+
+        public function LevelDelete($id)
+        {
+            $level = Level::findOrFail($id);
+            $level->delete();
+            
+            return view("admin.levels.index");
+        }
 }

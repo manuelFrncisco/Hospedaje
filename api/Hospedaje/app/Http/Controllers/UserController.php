@@ -13,4 +13,20 @@ class UserController extends Controller
         
         return view("admin.users.index", compact('users'));
     }
+    public function usuarioCrear(){
+
+        return view('admin.users.create');
+    }
+
+    public function UserCreate(){
+
+    }
+    public function usuarioEditar(){
+        return view('admin.users.edit');
+    }
+    public function UserEdit(){
+
+    }
+    public function UserDelete(){
+    }
 }
