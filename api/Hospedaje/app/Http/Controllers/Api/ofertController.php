@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Ofert;
 use Illuminate\Http\Request;
 
-class ofertController extends Controller
+class OfertController extends Controller
 {
     public function list(){
         $oferts = Ofert::all();

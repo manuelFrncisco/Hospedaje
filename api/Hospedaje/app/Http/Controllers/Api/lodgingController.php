@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Lodging;
 use Illuminate\Http\Request;
 
-class lodgingController extends Controller
+class LodgingController extends Controller
 {
     public function list()
     {

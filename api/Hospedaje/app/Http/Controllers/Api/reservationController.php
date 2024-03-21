@@ -7,7 +7,7 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Models\Lodging;
 
-class reservationController extends Controller
+class ReservationController extends Controller
 {
     public function list()
     {

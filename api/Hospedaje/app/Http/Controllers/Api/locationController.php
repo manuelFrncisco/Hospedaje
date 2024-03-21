@@ -6,7 +6,7 @@ use App\Models\Location;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class locationController extends Controller
+class LocationController extends Controller
 {
 
     public function list(){

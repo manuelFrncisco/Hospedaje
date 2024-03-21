@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Rating;
 use Illuminate\Http\Request;
 
-class ratingController extends Controller
+class RatingController extends Controller
 {
     public function list()
     {
