@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\LocationController;
-use App\Http\Controllers\Api\CommentController;
-use App\Http\Controllers\Api\LodgingController;
-use App\Http\Controllers\Api\OfertController;
-use App\Http\Controllers\Api\RatingController;
-use App\Http\Controllers\Api\ReservationController;
+use App\Http\Controllers\api\AuthController;
+use App\Http\Controllers\api\LocationController;
+use App\Http\Controllers\api\CommentController;
+use App\Http\Controllers\api\LodgingController;
+use App\Http\Controllers\api\OfertController;
+use App\Http\Controllers\api\RatingController;
+use App\Http\Controllers\api\ReservationController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
