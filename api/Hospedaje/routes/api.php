@@ -1,13 +1,12 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
-use App\Http\Controllers\Api\locationController;
-use App\Http\Controllers\Api\commentController;
-use App\Http\Controllers\Api\lodgingController;
-use App\Http\Controllers\Api\ofertController;
-use App\Http\Controllers\Api\ratingController;
-use App\Http\Controllers\Api\reservationController;
-use App\Http\Controllers\Api\PackageController;
+use App\Http\Controllers\Api\LocationController;
+use App\Http\Controllers\Api\CommentController;
+use App\Http\Controllers\Api\LodgingController;
+use App\Http\Controllers\Api\OfertController;
+use App\Http\Controllers\Api\RatingController;
+use App\Http\Controllers\Api\ReservationController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
@@ -28,35 +27,35 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/locations', [locationController::class, 'list']);
-Route::get('/locations/{id}', [locationController::class,'show']);
-Route::post('/locations/create', [locationController::class,'create']);
-Route::post('/locations/{id}/update', [locationController::class, 'updated']);
+Route::get('/locations', [LocationController::class, 'list']);
+Route::get('/locations/{id}', [LocationController::class,'show']);
+Route::post('/locations/create', [LocationController::class,'create']);
+Route::post('/locations/{id}/update', [LocationController::class, 'updated']);
 
-Route::get('/comments',[commentController::class,'list']);
-Route::get('/comments/{id}',[commentController::class,'show']);
-Route::post('/comments/create',[commentController::class,'create']);
-Route::post('/comments',[commentController::class,'update']);
+Route::get('/comments',[CommentController::class,'list']);
+Route::get('/comments/{id}',[CommentController::class,'show']);
+Route::post('/comments/create',[CommentController::class,'create']);
+Route::post('/comments',[CommentController::class,'update']);
 
-Route::get('/lodgings', [lodgingController::class , 'list']);
-Route::get('/lodgings/{id}', [lodgingController::class,'show']);
-Route::post('/lodgings/create', [lodgingController::class,'create']);
-Route::post('/lodgings', [lodgingController::class,'updated']);
+Route::get('/lodgings', [LodgingController::class , 'list']);
+Route::get('/lodgings/{id}', [LodgingController::class,'show']);
+Route::post('/lodgings/create', [LodgingController::class,'create']);
+Route::post('/lodgings', [LodgingController::class,'updated']);
 
-Route::get('/oferts', [ofertController::class,'list']);
-Route::get('/oferts/{id}',[ofertController::class,'show']);
-Route::post('/oferts/create', [ofertController::class,'create']);
-Route::post('/oferts', [ofertController::class,'updated']);
+Route::get('/oferts', [OfertController::class,'list']);
+Route::get('/oferts/{id}',[OfertController::class,'show']);
+Route::post('/oferts/create', [OfertController::class,'create']);
+Route::post('/oferts', [OfertController::class,'updated']);
 
-Route::get('/ratings', [ratingController::class,'list']);
-Route::get('/ratings/{id}', [ratingController::class,'show']);
-Route::post('/ratings/create', [ratingController::class,'create']);
-Route::post('/ratings', [ratingController::class,'updated']);
+Route::get('/ratings', [RatingController::class,'list']);
+Route::get('/ratings/{id}', [RatingController::class,'show']);
+Route::post('/ratings/create', [RatingController::class,'create']);
+Route::post('/ratings', [RatingController::class,'updated']);
 
-Route::get('/reservations',[reservationController::class,'list']);
-Route::get('/reservations/{id}',[reservationController::class,'show']);
-Route::post('/reserva/create',[reservationController::class,'create']);
-Route::post('/reservations',[reservationController::class,'updated']);
+Route::get('/reservations',[ReservationController::class,'list']);
+Route::get('/reservations/{id}',[ReservationController::class,'show']);
+Route::post('/reserva/create',[ReservationController::class,'create']);
+Route::post('/reservations',[ReservationController::class,'updated']);
 
 
 Route::post('/login',[AuthController::class, 'login']);
