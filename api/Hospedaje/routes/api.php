@@ -1,13 +1,15 @@
 <?php
 
+
+
+
 use App\Http\Controllers\api\AuthController;
-use App\Http\Controllers\api\LocationController;
 use App\Http\Controllers\api\CommentController;
+use App\Http\Controllers\api\LocationController;
 use App\Http\Controllers\api\LodgingController;
 use App\Http\Controllers\api\OfertController;
 use App\Http\Controllers\api\RatingController;
 use App\Http\Controllers\api\ReservationController;
-use Illuminate\Http\Request;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +27,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
 
 Route::get('/locations', [LocationController::class, 'list']);
 Route::get('/locations/{id}', [LocationController::class,'show']);
@@ -57,8 +58,6 @@ Route::get('/reservations/{id}',[ReservationController::class,'show']);
 Route::post('/reserva/create',[ReservationController::class,'create']);
 Route::post('/reservations',[ReservationController::class,'updated']);
 
-
 Route::post('/login',[AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/profile', [AuthController::class,'show'])->middleware('auth:api');
-
