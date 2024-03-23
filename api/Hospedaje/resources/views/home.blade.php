@@ -67,7 +67,7 @@
         <h2>Comenta</h2>
         <p>Comenta tu lugar favorito donde te gusto estar</p>
     </div>
-    <div>
+    <div class="p-5">
         <h3>
             Calificar en tu Hotel favorito
         </h3>

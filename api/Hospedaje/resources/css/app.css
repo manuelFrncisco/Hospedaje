@@ -4,9 +4,8 @@ body {
     height: auto;
     place-items: center;
     line-height: 1.5;
-
     padding: 0;
-    background-color: #f0ebdf;
+    background-color: #eddfbf;
 }
 
 h1 {
@@ -172,7 +171,7 @@ button:focus-visible {
 
 .division div:first-child {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(' ../../public/image/pexels-pixabay-164558.jpg');
+        url(' https://images.pexels.com/photos/1591361/pexels-photo-1591361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -203,7 +202,7 @@ button:focus-visible {
 
 .division div:nth-child(4) {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(' ../../public/image/pexels-pixabay-221457.jpg');
+        url('https://images.pexels.com/photos/2363807/pexels-photo-2363807.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
     text-align: start;
     padding: 20px;
