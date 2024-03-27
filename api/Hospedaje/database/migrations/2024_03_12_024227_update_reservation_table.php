@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('reservations', function(Blueprint $table) {
             $table -> dropColumn('rating_id');
-            $table -> dropColumn('location_id');
+          
         });
     }
 
@@ -24,7 +24,7 @@ return new class extends Migration
     {
         Schema::table('reservation', function(Blueprint $table) {
             $table -> bigInteger('rating_id');
-            $table -> bigInteger('location_id');
+          
         });
     }
 };

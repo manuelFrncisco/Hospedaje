@@ -11,7 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-    
+        Schema::create('country', function (Blueprint $table) {
+            $table->integer('id');
+            $table->string('name');
+        });
     }
 
     /**
@@ -19,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-    
+        Schema::dropIfExists('country');
     }
 };

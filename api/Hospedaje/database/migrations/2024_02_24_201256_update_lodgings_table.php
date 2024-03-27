@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table("lodgings", function (Blueprint $table) {
             $table->integer('user_id');
-            $table->dropColumn('comment_id');
         });
     }
 

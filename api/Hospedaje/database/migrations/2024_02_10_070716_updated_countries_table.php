@@ -11,9 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table("countries", function (Blueprint $table) {
-            $table->dropColumn("city_id");
-        });
+       
 
     }
 
@@ -22,6 +20,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('countries');
+       
     }
 };

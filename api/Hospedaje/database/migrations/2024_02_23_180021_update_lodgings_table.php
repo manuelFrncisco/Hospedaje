@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table("lodgings", function (Blueprint $table) {
             $table->dropColumn("package_id");
-            $table->integer("page");
             $table->date("start_range");
             $table->date("end_range");
         });
@@ -25,7 +24,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table("lodgings", function(Blueprint $table){
-            $table->dropColumn("page");
             $table->dropColumn("start_range");
             $table->dropColumn("end_range");
         });
