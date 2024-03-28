@@ -56,7 +56,7 @@ Route::post('/ratings', [RatingController::class,'updated']);
 Route::get('/reservations',[ReservationController::class,'list']);
 Route::get('/reservations/{id}',[ReservationController::class,'show']);
 Route::post('/reserva/create',[ReservationController::class,'create']);
-Route::post('/reservations',[ReservationController::class,'updated']);
+Route::post('/reservations/{id}',[ReservationController::class,'updated']);
 
 Route::post('/login',[AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
