@@ -52,11 +52,20 @@ class User extends Authenticatable
         return $this->belongsTo(Level::class);
     }
 
+    public function comment()
+    {
+        return $this->belongsTo(Comment::class);
+    }
+
     public function lodging()
     {
         return $this->belongsTo(Lodging::class);
     }
 
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
     public function reservation()
     {
         return $this->belongsTo(Reservation::class);

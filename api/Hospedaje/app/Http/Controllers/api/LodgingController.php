@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\Lodging;
 use Illuminate\Http\Request;
 
@@ -40,35 +41,35 @@ class LodgingController extends Controller
     }
 
     public function show($id)
-{
-    $lodging = Lodging::with('location.country')->find($id);
+    {
+        $lodging = Lodging::with('location.country')->find($id);
 
-    if (!$lodging) {
-        return response()->json(['error' => 'Lodging not found'], 404);
-    }
+        if (!$lodging) {
+            return response()->json(['error' => 'Lodging not found'], 404);
+        }
 
-    $object = [
-        "id" => $lodging->id,
-        "name" => $lodging->name,
-        "description" => $lodging->description,
-        "image" => $lodging->image,
-        "backroom" => $lodging->backroom,
-        "ofert_id" => $lodging->ofert_id,
-        "location" => [
-            "id" => $lodging->location->id,
-            "streep" => $lodging->location->streep,
-            "country" => [
-                "id" => $lodging->location->country->id,
-                "name" => $lodging->location->country->name
+        $object = [
+            "id" => $lodging->id,
+            "name" => $lodging->name,
+            "description" => $lodging->description,
+            "image" => $lodging->image,
+            "backroom" => $lodging->backroom,
+            "ofert_id" => $lodging->ofert_id,
+            "location" => [
+                "id" => $lodging->location->id,
+                "streep" => $lodging->location->streep,
+                "country" => [
+                    "id" => $lodging->location->country->id,
+                    "name" => $lodging->location->country->name
+                ],
+                "postal" => $lodging->location->postal
             ],
-            "postal" => $lodging->location->postal
-        ],
-        "created_at" => $lodging->created_at,
-        "updated_at" => $lodging->updated_at,
-    ];
+            "created_at" => $lodging->created_at,
+            "updated_at" => $lodging->updated_at,
+        ];
 
-    return response()->json($object);
-}
+        return response()->json($object);
+    }
     public function create(Request $request)
     {
 

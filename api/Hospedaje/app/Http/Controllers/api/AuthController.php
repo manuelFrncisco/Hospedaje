@@ -30,6 +30,7 @@ class AuthController extends Controller
         return response([
             
             'profile' => auth()->user(),
+            'token' => $accessToken,
             'message' => 'success'
         ]);
 
@@ -82,17 +83,17 @@ class AuthController extends Controller
         }
 
     }
-    public function show()
+    public function profile()
     {
         if (auth()->check()) {
             $user = auth()->user();
+            $user->load('reservations'); 
             return response()->json([
                 'profile' => $user,
                 'message' => 'success'
             ]);
         } else {
-            // Agrega un registro para verificar si el usuario está autenticado correctamente
-            \Log::info('El usuario no está autenticado.');
+           
             return response()->json(['error' => 'Unauthorized'], 401);
         }
     }

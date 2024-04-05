@@ -35,8 +35,10 @@ Route::post('/locations/{id}/update', [LocationController::class, 'updated']);
 
 Route::get('/comments',[CommentController::class,'list']);
 Route::get('/comments/{id}',[CommentController::class,'show']);
-Route::post('/comments/create',[CommentController::class,'create']);
-Route::post('/comments',[CommentController::class,'update']);
+Route::post('/comment/create',[CommentController::class,'create'])->middleware('auth:api');
+Route::post('/comments/{id}',[CommentController::class,'update']);
+
+Route::get('/lodgings/{id}/comments', [CommentController::class, 'indexByLodging'])->middleware('auth:api');
 
 Route::get('/lodgings', [LodgingController::class , 'list']);
 Route::get('/lodgings/{id}', [LodgingController::class,'show']);
@@ -53,11 +55,13 @@ Route::get('/ratings/{id}', [RatingController::class,'show']);
 Route::post('/ratings/create', [RatingController::class,'create']);
 Route::post('/ratings', [RatingController::class,'updated']);
 
+Route::post('/rating/create', [RatingController::class, 'store']);
+
 Route::get('/reservations',[ReservationController::class,'list']);
 Route::get('/reservations/{id}',[ReservationController::class,'show']);
-Route::post('/reserva/create',[ReservationController::class,'create']);
+Route::post('/reserva/create',[ReservationController::class,'create'])->middleware('auth:api');
 Route::post('/reservations/{id}',[ReservationController::class,'updated']);
 
 Route::post('/login',[AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
-Route::get('/profile', [AuthController::class,'show'])->middleware('auth:api');
+Route::get('/profile', [AuthController::class,'profile'])->middleware('auth:api');

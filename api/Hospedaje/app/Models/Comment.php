@@ -14,6 +14,9 @@ class Comment extends Model
         "user_id",
         "lodging_id"
     ];
+
+    protected $with = ['user']; // Cargar la relación 'user' automáticamente
+
     public function lodging()
     {
         return $this->belongsTo(Lodging::class);
@@ -21,7 +24,7 @@ class Comment extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withoutGlobalScopes(); // No aplicar alcances globales
     }
-
 }
+

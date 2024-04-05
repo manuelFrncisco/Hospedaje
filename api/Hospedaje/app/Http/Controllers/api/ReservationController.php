@@ -30,6 +30,7 @@ class ReservationController extends Controller
         return response()->json($list);
 
     }
+
     public function show($id)
     {
         $reservation = Reservation::where('id', '=', $id)->first();
@@ -56,43 +57,42 @@ class ReservationController extends Controller
 
     public function create(Request $request)
     {
-
+        // Verificar si el usuario está autenticado
         if (auth()->check()) {
             $user_id = auth()->id();
 
+            // Validar los datos de la reserva
+            $data = $request->validate([
+                'lodging_id' => 'required|exists:lodgings,id',
+                'start_date' => 'required|date',
+                'end_date' => 'required|date',
+            ]);
 
+            // Verificar si el usuario ya tiene una reserva para el mismo lodging
+            $existingReservation = Reservation::where('user_id', $user_id)
+                ->where('lodging_id', $data['lodging_id'])
+                ->first();
+
+            if ($existingReservation) {
+                return response()->json(['error' => 'Ya tienes una reserva para este lodging'], 400);
+            }
+
+            // Crear la nueva reserva
+            $reservation = new Reservation();
+            $reservation->start_date = $data['start_date'];
+            $reservation->end_date = $data['end_date'];
+            $reservation->user_id = $user_id;
+            $reservation->lodging_id = $data['lodging_id'];
+            $reservation->save();
+
+            return response()->json(['success' => 'Reserva realizada correctamente'], 200);
         } else {
             // El usuario no está autenticado, manejar el caso en consecuencia
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-
-        $data = $request->validate([
-            'lodging_id' => 'required|exists:lodgings,id',
-            'start_date' => 'date',
-            'end_date' => 'date',
-        ]);
-
-        $lodging = Lodging::findOrFail($data['lodging_id']);
-        $reservations = Reservation::where('lodging_id', $lodging->id)
-            ->where(function ($query) use ($data) {
-                $query->whereBetween('start_date', [$data['start_date'], $data['end_date']])
-                    ->orWhereBetween('end_date', [$data['start_date'], $data['end_date']]);
-            })
-            ->get();
-
-        if ($reservations->isNotEmpty()) {
-            return response()->json(['error' => 'El lodging no está disponible para las fechas seleccionadas'], 400);
-        }
-
-        $reservation = new Reservation();
-        $reservation->start_date = $data['start_date'];
-        $reservation->end_date = $data['end_date'];
-        $reservation->user_id = $user_id;
-        $reservation->lodging_id = $data['lodging_id'];
-        $reservation->save();
-
-        return response()->json(['success' => 'Reserva realizada correctamente'], 200);
     }
+
+
 
     public function update(Request $request, $id)
     {
@@ -111,8 +111,8 @@ class ReservationController extends Controller
 
     public function delete($id)
     {
-        $reservation =Reservation::findOrFail($id);
-        $reservation-> delete();
+        $reservation = Reservation::findOrFail($id);
+        $reservation->delete();
 
         return back()->with('success', 'Reservaacion eliminada exitosamente');
     }
