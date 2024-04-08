@@ -28,6 +28,11 @@ class Lodging extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class);
+    }
+
     public function reservation()
     {
         return $this->belongsTo(Reservation::class);
@@ -53,5 +58,10 @@ class Lodging extends Model
     public function ofert()
     {
         return $this->belongsTo(Ofert::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Rating::class);
     }
 }

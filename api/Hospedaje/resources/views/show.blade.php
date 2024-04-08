@@ -83,16 +83,21 @@
                     <form action="{{ route('comment.delete', $comment->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <div class="card w-50 mt-3">
+                        <div class="card mt-3">
                             <div class="card-body">
                                 <p class="card-text">{{ $comment->messaje }}</p>
-                                @if (Auth::check())
-                                    <a href="#" class="btn btn-danger">Eliminar</a>
-                                @endif
+
+                                @auth
+                                    @if (Auth::id() == $comment->user_id)
+                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                    @endif
+                                @endauth
+
                             </div>
                         </div>
                     </form>
                 @endforeach
+
             </div>
             <div class="col col-md-6 pt-5 mt-5 bsb-tpl-bg-platinum">
                 <h2>{{ $lodging->name }}</h2>
