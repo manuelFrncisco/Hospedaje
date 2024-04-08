@@ -54,6 +54,7 @@ Route::get('/ratings', [RatingController::class,'list']);
 Route::get('/ratings/{id}', [RatingController::class,'show']);
 Route::post('/ratings/create', [RatingController::class,'create']);
 Route::post('/ratings', [RatingController::class,'updated']);
+Route::get('/rating/lodging/{id}', [RatingController::class, 'ratingAverage']);
 
 Route::post('/rating/create', [RatingController::class, 'store']);
 
@@ -65,3 +66,4 @@ Route::post('/reservations/{id}',[ReservationController::class,'updated']);
 Route::post('/login',[AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/profile', [AuthController::class,'profile'])->middleware('auth:api');
+Route::post('/profile/update',[AuthController::class,'update'])->middleware('auth:api');

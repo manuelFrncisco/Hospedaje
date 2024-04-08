@@ -10,7 +10,7 @@ use App\Models\User;
 class AuthController extends Controller
 {
 
-    
+
     public function login(Request $request)
     {
 
@@ -28,18 +28,11 @@ class AuthController extends Controller
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
 
         return response([
-            
+
             'profile' => auth()->user(),
             'token' => $accessToken,
             'message' => 'success'
         ]);
-
-
-    }
-
-    public function logout(Request $request)
-    {
-
     }
 
     public function register(Request $request)
@@ -87,15 +80,54 @@ class AuthController extends Controller
     {
         if (auth()->check()) {
             $user = auth()->user();
-            $user->load('reservations'); 
+            $user->load('reservations');
             return response()->json([
                 'profile' => $user,
                 'message' => 'success'
             ]);
         } else {
-           
+
             return response()->json(['error' => 'Unauthorized'], 401);
         }
     }
+
+    public function update(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->validate([
+            'name' => 'nullable|string|max:255',
+            'surname' => 'nullable|string|max:255',
+            'email' => 'nullable|string|email|max:255|unique:users,email,' . $user->id,
+            'phone' => 'nullable|string|max:255',
+            'image' => 'nullable|string|max:255',
+        ]);
+
+        if ($request->filled('name')) {
+            $user->name = $request->name;
+        }
+
+        if ($request->filled('surname')) {
+            $user->surname = $request->surname;
+        }
+
+        if ($request->filled('email')) {
+            $user->email = $request->email;
+        }
+
+        if ($request->filled('phone')) {
+            $user->phone = $request->phone;
+        }
+
+        if ($request->filled('image')) {
+            $user->image = $request->image;
+        }
+
+        $user->save();
+
+        return response()->json(['message' => 'User updated successfully']);
+    }
+
+
 
 }

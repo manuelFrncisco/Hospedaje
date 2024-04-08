@@ -48,6 +48,9 @@ class RatingController extends Controller
     {
         $this->middleware('auth:api');
     }
+
+    
+
     public function store(Request $request)
     {
 
@@ -77,6 +80,21 @@ class RatingController extends Controller
             return response()->json(['message' => 'Rating created successfully'], 200);
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
+        }
+    }
+
+    public function ratingAverage($id)
+    {
+        {
+            $ratings = Rating::where('lodging_id', $id)->get();
+            $count = $ratings->count();
+            $totalRating = $ratings->sum('number');
+            $averageRating = $count > 0 ? $totalRating / $count : 0;
+    
+            return response()->json([
+                'ratings' => $ratings,
+                'average_rating' => $averageRating,
+            ]);
         }
     }
 
