@@ -83,7 +83,7 @@
                     <form action="{{ route('comment.delete', $comment->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <div class="card w-50">
+                        <div class="card w-50 mt-3">
                             <div class="card-body">
                                 <p class="card-text">{{ $comment->messaje }}</p>
                                 @if (Auth::check())
@@ -127,7 +127,7 @@
                             <div class="card-body">
                                 <h3>Editar publicacion:</h3>
 
-                                <a href="{{ route('editar', $lodging->id) }}" class="btn btn-primary">Editar
+                                <a href="{{ route('editar', $lodging->id) }}" class="btn btn-primary mb-3">Editar
                                     Publicación</a>
                                 <form action="{{ route('delete', $lodging->id) }}" method="POST">
                                     @csrf

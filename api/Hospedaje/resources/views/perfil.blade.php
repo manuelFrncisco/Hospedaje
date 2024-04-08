@@ -15,7 +15,7 @@
                       <div class="col-md-4 gradient-custom text-center text-white"
                       style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
                       <img src="{{ $user->image }}"
-                      alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                      alt="Avatar" class="img-fluid my-5" height="60" width="60"/>
                       <!-- Nombre de usuario-->
                       <h6 class="text-black">{{ $user->name }}</h6>
                       <!-- SurName de usuario-->
@@ -37,7 +37,7 @@
                                 </div>
                                 <hr class="mt-0 mb-4">
                                 <div class="d-flex justify-content-start">
-                                  <a href="/user/perfil" class="btn bsb-btn-xl btn-editar text-white">Editar</a>
+                                  <a href="/user/perfil" class="btn bsb-btn-xl btn-warning">Editar</a>
                                 </div>
                             </div>
                         </div>

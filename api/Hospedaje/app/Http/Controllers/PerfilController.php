@@ -43,6 +43,7 @@ class PerfilController extends Controller
         $user->surname = $request->input('surname');
         $user->email = $request->input('email');
         $user->phone = $request->input('phone');
+        $user->image = $request->input('image');
 
         $user->save();
 

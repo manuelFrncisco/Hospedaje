@@ -61,14 +61,12 @@ class PageController extends Controller
 
         $country = Country::where('name', $request->input('country_name'))->first();
 
-        // Si el país no existe, puedes crearlo aquí o manejarlo según tu lógica
         if (!$country) {
             $country = Country::create([
                 'name' => $request->input('country_name'),
             ]);
         }
 
-        // Crear la ubicación (Location) con el país encontrado o creado
         $location = Location::create([
             "postal" => $request->input("postal"),
             "streep" => $request->input("streep"),
@@ -84,6 +82,7 @@ class PageController extends Controller
             "city_name" => $request->input("city_name"),
             "page" => $request->input("page"),
             "user_id" => $user->id,
+            "ofert_id" => 1,
             "start_range" => $request->input("start_range"),
             "end_range" => $request->input("end_range"),
 
