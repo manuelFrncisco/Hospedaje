@@ -16,6 +16,14 @@ class LocationController extends Controller
         return view("admin.locations.index", compact('locations'));
     }
 
+
+    public function locationShow($id)
+    {
+        $location = Location::findOrFail($id);
+
+        return view('admin.locations.show', compact('location'));
+    }
+
     public function localizacionCrear(Request $request)
     {
         $countries = Country::all();

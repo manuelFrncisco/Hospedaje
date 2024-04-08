@@ -14,6 +14,7 @@ class ReservationController extends Controller
 
         return view("admin.reservations.index", ['reservations' => $reservations]);
     }
+    
 
     public function ReservationShow($id)
     {

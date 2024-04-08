@@ -86,6 +86,7 @@ Route::middleware('checkUserRole')->group(function () {
     Route::get('/admin/ofertas', [OfertController::class, 'index'])->name('admin.offers.index');
     
     Route::get('/admin/nivel', [LevelController::class, 'index'])->name('admin.levels.index');
+    Route::get('/admin/nivel/{id}',[LevelController::class, 'levelShow'])->name('levelShow');
     Route::get('/admin/nivel/crear', [LevelController::class, 'levelCrear'])->name('levelCrear');
     Route::get('/admin/nivel/editar/{id}', [LevelController::class, 'levelEditar'])->name('levelEditar');
     Route::post('nivel/create', [LevelController::class, 'LevelCreate'])->name('LevelCreate');

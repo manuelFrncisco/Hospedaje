@@ -7,8 +7,8 @@
                 <h2 class="mt-4">Localizacion</h2>
                 <ol class="breadcrumb mb-4">
                     <a class="breadcrumb-item active" href="/admin">Atras</a>
-                    <p>Total de Localizaciones: {{ $locations->count() }}</p>
                 </ol>
+                <p>Total de Localizaciones: {{ $locations->count() }}</p>
                 <div class="mb-3">
                     <a type="submit" href="{{ route('localizacionCrear') }}" class="btn btn-success">Crear Localizacion</a>
                 </div>
@@ -35,7 +35,7 @@
                                         <td>
                                             <!-- Botones de acciones -->
                                             <a href="{{route('localizacionEditar', ['id' => $location->id]) }}" class="btn btn-primary">Editar</a>
-                                            <a href="{{ route('locationShow', ['id' => $country->id]) }}"
+                                            <a href="{{ route('locationShow', ['id' => $location->id]) }}"
                                                 class="btn btn-info">Ver</a>
                                             <form action="{{route('LocationDelete',  $location->id)}}" method="POST">
                                                 @csrf

@@ -7,8 +7,8 @@
             <h2 class="mt-4">Nivel</h2>
             <ol class="breadcrumb mb-4">
                 <a class="breadcrumb-item active" href="/admin">Atras</a>
-                <p>Total de Niveles: {{ $levels->count() }}</p>
             </ol>
+            <p>Total de Niveles: {{ $levels->count() }}</p>
         </div>
         <div class="card mb-4">
             <div class="card-body">
@@ -35,6 +35,8 @@
                                         <!-- Botones de acciones -->
                                         <a href="{{ route('levelEditar', ['id' => $level->id]) }}"
                                             class="btn btn-primary">Editar</a>
+                                            <a href="{{ route('levelShow', ['id' => $level->id]) }}"
+                                                class="btn btn-info">Ver</a>
                                         <form action="{{ route('LevelDelete', ['id' => $level->id]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')

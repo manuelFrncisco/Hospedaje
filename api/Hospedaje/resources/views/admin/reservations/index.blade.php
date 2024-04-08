@@ -43,6 +43,8 @@
                                         <td>
                                             <!-- Botones de acciones -->
                                             <a href="{{route('ReservationEdit', ['id' => $reservation->id]) }}" class="btn btn-primary">Editar</a>
+                                            <a href="{{ route('ReservationShow', ['id' => $reservation->id]) }}"
+                                                class="btn btn-info">Ver</a>
                                             <form action="{{route('ReservationDelete', ['id' => $reservation->id])}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')

@@ -8,8 +8,8 @@
                 <h2 class="mt-4">Alojamiento</h2>
                 <ol class="breadcrumb mb-4">
                     <a class="breadcrumb-item active" href="/admin">Atras</a>
-                    <p>Total de Alojamientos: {{ $lodgings->count() }}</p>
                 </ol>
+                <p>Total de Alojamientos: {{ $lodgings->count() }}</p>
                 <div class="mb-3">
                     <a type="submit" href="{{route('alojamientoCrear')}}" class="btn btn-success">Crear Alojamiento</a>
 
@@ -40,7 +40,7 @@
                                         <td>{{ $lodging->id }}</td>
                                         <td>{{ $lodging->name }}</td>
                                         <td>{{ $lodging->description}}</td>
-                                        <td>{{ $lodging->image}}</td>
+                                        <td><img src="{{ $lodging->image}}" height="100" width="100"></td>
                                         <td>{{ $lodging->page}}</td>
                                         <td>{{ $lodging->start_range}}</td>
                                         <td>{{ $lodging->end_range}}</td>
@@ -50,7 +50,7 @@
                                         <td>
                                             <!-- Botones de acciones -->
                                             <a href="{{route('alojamientoEditar', ['id' => $lodging->id]) }}" class="btn btn-primary">Editar</a>
-                                            <a href="{{ route('lodgingShow', ['id' => $country->id]) }}"
+                                            <a href="{{ route('lodgingShow', ['id' => $lodging->id]) }}"
                                                 class="btn btn-info">Ver</a>
                                             <form action="{{route('LodgingDelete', ['id' => $lodging->id])}}" method="POST">
                                                 @csrf

@@ -19,7 +19,8 @@ class RatingController extends Controller
     public function ratingShow($id)
     {
         $rating = Rating::findOrFail($id);
-        return view("admin.ratings.show", compact('rating'));
+        $reservation = Reservation::all();
+        return view("admin.ratings.show", compact('rating', 'reservation'));
     }
 
     public function calificacionCrear()

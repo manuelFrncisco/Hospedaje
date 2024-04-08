@@ -12,6 +12,14 @@ class LevelController extends Controller
 
             return view('admin.levels.index', compact('levels'));
         }
+
+        public function levelShow($id)
+        {
+            $level = Level::findOrFail($id);
+
+            return view('admin.levels.show', compact('level'));
+        }
+
         public function levelEditar($id)
         {
             $level = Level::findOrFail($id);

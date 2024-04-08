@@ -13,8 +13,7 @@
                     <h3>ID: {{ $lodging->id }}</h3>
                     <h3>Calle: {{ $lodging->name }}</h3>
                     <h3>Pais: {{ $lodging->description }}</h3>
-                    <h3>Postal: {{$lodging->postal}}</h3>
-                    <img src="{{$lodging->image}}">
+                    <h3><img src="{{$lodging->image}}" height="200" width="200"></h3>
                     <h3>{{$lodging->page}}</h3>
                     <h3>{{$lodging->backroom}}</h3>
                     <h3>{{$lodging->location->streep}}</h3>
