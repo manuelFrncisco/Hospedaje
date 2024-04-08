@@ -7,6 +7,7 @@
             <h2 class="mt-4">Nivel</h2>
             <ol class="breadcrumb mb-4">
                 <a class="breadcrumb-item active" href="/admin">Atras</a>
+                <p>Total de Niveles: {{ $levels->count() }}</p>
             </ol>
         </div>
         <div class="card mb-4">

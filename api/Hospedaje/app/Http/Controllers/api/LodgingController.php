@@ -72,7 +72,6 @@ class LodgingController extends Controller
     }
     public function create(Request $request)
     {
-
         $data = $request->validate([
             "name" => "min:3",
             "description" => "max:2",

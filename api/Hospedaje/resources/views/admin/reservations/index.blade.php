@@ -9,6 +9,7 @@
             <ol class="breadcrumb mb-4">
                 <a class="breadcrumb-item active" href="/admin">Atras</a>
             </ol>
+            <p>Total de Reservaciones: {{ $reservations->count() }}</p>
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="table-responsive">

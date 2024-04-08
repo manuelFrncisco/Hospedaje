@@ -15,6 +15,13 @@ class LodgingController extends Controller
         return view("admin.lodgings.index", compact('lodgings'));
     }
 
+    public function lodgingShow($id)
+    {
+        $lodging = Lodging::findOrFail($id);
+
+        return view('admin.lodgings.show', compact('lodging'));
+    }
+
     public function alojamientoCrear()
     {
         $locations = Location::all();

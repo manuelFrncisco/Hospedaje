@@ -36,6 +36,7 @@ Route::middleware('checkUserRole')->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.home');
     
     Route::get('/admin/comentario', [CommentController::class, 'index'])->name('admin.comments.index');
+    Route::get('/admin/comentario/{id}',[CommentController::class,'commentShow'])->name('commentShow');
     Route::get('/admin/comentario/crear', [CommentController::class, 'comentarioCrear'])->name('comentarioCrear');
     Route::post('comentario/crear', [CommentController::class, 'CommentCreate'])->name('CommentCreate');
     Route::get('/admin/comentario/editar/{id}', [CommentController::class, 'comentarioEditar'])->name('comentarioEditar');
@@ -43,6 +44,7 @@ Route::middleware('checkUserRole')->group(function () {
     Route::delete('/comentario/eliminar/{id}', [CommentController::class, 'CommentDelete'])->name('CommentDelete');
     
     Route::get('/admin/usuarios', [UserController::class, 'index'])->name('admin.users.index');
+    Route::get('/admin/ususarios/{id}',[UserController::class,'userShow'])->name('userShow');
     Route::get('/admin/usuarios/crear',[UserController::class, 'usuarioCrear'])->name('usuarioCrear');
     Route::get('/admin/usuarios/editar/{id}',[UserController::class, 'usuarioEditar'])->name('usuarioEditar');
     Route::post('/usuario/editar/{id}',[UserController::class, 'UserEdit'])->name('UserEdit');
@@ -58,6 +60,7 @@ Route::middleware('checkUserRole')->group(function () {
     Route::delete('reservacion/eliminado/{id}', [ReservationController::class, 'ReservationDelete'])->name('ReservationDelete');
     
     Route::get('/admin/calificacion', [RatingController::class, 'index'])->name('admin.ratings.index');
+    Route::get('/admin/califiaciones/{id}',[RatingController::class,'ratingShow'])->name('ratingShow');
     Route::get('/admin/calificacion/crear',[RatingController::class,'calificacionCrear'])->name('calificacionCrear');
     Route::get('/admin/calificaciones/editar/{id}', [RatingController::class, 'calificacionEditar'])->name('calificacionEditar');
     Route::post('/calificacion/crear',[RatingController::class, 'RatingCreate'])->name('RatingCreate');
@@ -65,6 +68,7 @@ Route::middleware('checkUserRole')->group(function () {
     Route::delete('/calificacion/eliminar/{id}',[RatingController::class,'RatingDelete'])->name('RatingDelete');
     
     Route::get('/admin/localizacion', [locationController::class, 'index'])->name('admin.locations.index');
+    Route::get('/admin/localizacion/{id}', [locationController::class,'locationShow'])->name('locationShow');
     Route::get('/admin/localizacion/crear',[locationController::class, 'localizacionCrear'])->name('localizacionCrear');
     Route::get('/admin/localizacion/editar/{id}', [locationController::class, 'localizacionEditar'])->name('localizacionEditar');
     Route::put('/localizacion/editar/{id}',[locationController::class, 'LocationEdit'])->name('LocationEdit');
@@ -72,6 +76,7 @@ Route::middleware('checkUserRole')->group(function () {
     Route::delete('/localizacion/eliminar/{id}',[locationController::class, 'LocationDelete'])->name('LocationDelete');
     
     Route::get('/admin/alojamiento', [LodgingController::class, 'index'])->name('admin.lodgings.index');
+    Route::get('/admin/alojamiento/{id}', [LodgingController::class,'lodgingShow'])->name('lodgingShow');
     Route::get('/admin/alojamiento/crear',[LodgingController::class,'alojamientoCrear'])->name('alojamientoCrear');
     Route::get('/admin/alojamiento/editar/{id}',[LodgingController::class, 'alojamientoEditar'])->name('alojamientoEditar');
     Route::post('/alojamiento/crear',[LodgingController::class,'LodgingCreate'])->name('LodgingCreate');
@@ -88,6 +93,7 @@ Route::middleware('checkUserRole')->group(function () {
     Route::delete('nivel/eliminar/{id}',[LevelController::class, 'LevelDelete'])->name('LevelDelete');
     
     Route::get('/admin/paises',[CountryController::class, 'index'])->name('admin.countries.index');
+    Route::get('/admin/paises/{id}',[CountryController::class, 'paisShow'])->name('paisShow');
     Route::get('/admin/paises/crear',[CountryController::class, 'paisCrear'])->name('paisCrear');
     Route::get('/admin/paises/editar/{id}',[CountryController::class, 'paisEditar'])->name('paisEditar');
     Route::post('/paises/crear',[CountryController::class, 'CountryCreate'])->name('CountryCreate');

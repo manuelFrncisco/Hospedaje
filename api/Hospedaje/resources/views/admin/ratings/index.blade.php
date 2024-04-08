@@ -9,7 +9,9 @@
             <h2 class="mt-4">Calificaciones</h2>
             <ol class="breadcrumb mb-4">
                 <a class="breadcrumb-item active" href="/admin">Atras</a>
+                <p>Total de Califiaciones: {{ $ratings->count() }}</p>
             </ol>
+            <p>TOTAL: </p>
             <div class="mb-3">
                 <a type="submit" href="{{ route('calificacionCrear') }}" class="btn btn-success">Crear Comentario</a>
             </div>

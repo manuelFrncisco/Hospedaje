@@ -8,6 +8,7 @@
                 <h2 class="mt-4">Ofertas</h2>
                 <ol class="breadcrumb mb-4">
                     <a class="breadcrumb-item active" href="/admin">Atras</a>
+                    <p>Total de Ofertas: {{ $oferts->count() }}</p>
                 </ol>
             </div>
             <div class="card mb-4">

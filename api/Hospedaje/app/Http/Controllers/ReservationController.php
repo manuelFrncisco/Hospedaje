@@ -15,9 +15,11 @@ class ReservationController extends Controller
         return view("admin.reservations.index", ['reservations' => $reservations]);
     }
 
-    public function ReservationShow()
+    public function ReservationShow($id)
     {
+        $reservation = Reservation::findOrFail($id);
         
+        return view('admin.reservations.show', compact('reservation'));
     }
 
     public function reservacionCrear()

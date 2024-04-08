@@ -7,6 +7,7 @@
                 <h2 class="mt-4">Localizacion</h2>
                 <ol class="breadcrumb mb-4">
                     <a class="breadcrumb-item active" href="/admin">Atras</a>
+                    <p>Total de Localizaciones: {{ $locations->count() }}</p>
                 </ol>
                 <div class="mb-3">
                     <a type="submit" href="{{ route('localizacionCrear') }}" class="btn btn-success">Crear Localizacion</a>

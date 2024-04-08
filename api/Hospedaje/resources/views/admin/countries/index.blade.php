@@ -8,13 +8,13 @@
             <ol class="breadcrumb mb-4">
                 <a class="breadcrumb-item active" href="/admin">Atras</a>
             </ol>
+            <p>Total de países: {{ $countries->count() }}</p>
         </div>
         <div class="card mb-4">
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="mb-3">
-                        <a type="submit" href="{{route('paisCrear')}}" class="btn btn-success">Crear Paises</a>
-
+                        <a type="submit" href="{{ route('paisCrear') }}" class="btn btn-success">Crear Paises</a>
                     </div>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -32,6 +32,8 @@
                                     <td>
                                         <a href="{{ route('paisEditar', ['id' => $country->id]) }}"
                                             class="btn btn-primary">Editar</a>
+                                        <a href="{{ route('paisShow', ['id' => $country->id]) }}"
+                                            class="btn btn-info">Ver</a>
                                     </td>
                                 </tr>
                             @endforeach

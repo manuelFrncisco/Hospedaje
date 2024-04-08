@@ -16,6 +16,13 @@ class CommentController extends Controller
         return view("admin.comments.index", compact('comments'));
     }
 
+    public function commentShow($id)
+    {
+        $comment = Comment::findOrFail($id);
+        
+        return view("admin.comments.show", compact('comment'));
+    }
+
     public function comentarioCrear()
     {
         $lodgings = Lodging::all();

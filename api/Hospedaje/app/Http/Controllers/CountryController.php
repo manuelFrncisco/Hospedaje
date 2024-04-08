@@ -13,6 +13,13 @@ class CountryController extends Controller
         return view('admin.countries.index', compact('countries'));
     }
 
+    public function paisShow($id)
+    {
+        $country = Country::findOrFail($id);
+
+        return view('admin.countries.show', compact('country'));
+    }
+
     public function paisCrear()
     { 
         return view('admin.countries.create');

@@ -8,6 +8,7 @@
                 <h2 class="mt-4">Alojamiento</h2>
                 <ol class="breadcrumb mb-4">
                     <a class="breadcrumb-item active" href="/admin">Atras</a>
+                    <p>Total de Alojamientos: {{ $lodgings->count() }}</p>
                 </ol>
                 <div class="mb-3">
                     <a type="submit" href="{{route('alojamientoCrear')}}" class="btn btn-success">Crear Alojamiento</a>

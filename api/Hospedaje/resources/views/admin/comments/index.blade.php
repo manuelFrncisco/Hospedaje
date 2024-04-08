@@ -9,6 +9,7 @@
                 <ol class="breadcrumb mb-4">
                     <a class="breadcrumb-item active" href="/admin">Atras</a>
                 </ol>
+                <p>Total de Comentarios: {{ $comments->count() }}</p>
             </div>
             <div class="card mb-4">
                 <div class="card-body">
@@ -36,6 +37,8 @@
                                         <td>
                                             <!-- Botones de acciones -->
                                             <a href="{{route('comentarioEditar', ['id' => $comment->id]) }}" class="btn btn-primary">Editar</a>
+                                            <a href="{{ route('commentShow', ['id' => $comment->id]) }}"
+                                                class="btn btn-info">Ver</a>
                                             <form action="{{route('CommentDelete', ['id' => $comment->id])}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')

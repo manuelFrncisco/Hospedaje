@@ -9,6 +9,7 @@
                 <ol class="breadcrumb mb-4">
                     <a class="breadcrumb-item active" href="/admin">Atras</a>
                 </ol>
+                <p>Total de Usuarios: {{ $users->count() }}</p>
             </div>
             <div class="card mb-4">
                 <div class="card-body">
@@ -22,6 +23,7 @@
                                     <th>Phone</th>
                                     <th>Email</th>
                                     <th>Status</th>
+                                    <th>Image</th>
                                     <th>Level_id</th>
                                 </tr>
                             </thead>
@@ -34,6 +36,7 @@
                                         <td>{{ $user->phone }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->status }}</td>
+                                        <td><img src="{{$user->image}}" height="50" width="50"></td>
                                         <td>{{ $user->level_id }}</td>
                                     </tr>
                                 @endforeach
