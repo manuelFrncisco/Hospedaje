@@ -62,6 +62,6 @@ class Lodging extends Model
 
     public function comments()
     {
-        return $this->hasMany(Rating::class);
+        return $this->hasMany(Comment::class);
     }
 }

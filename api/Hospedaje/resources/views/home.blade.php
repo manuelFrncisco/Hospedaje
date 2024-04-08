@@ -58,7 +58,7 @@
     </section>
     <section class="mb-5 pb-5">
         <div class="m-4 p-2 row mb-5">
-            <h1>Alojamientos más reciente</h1>
+            <h1>Alojamientos más Califiacdo</h1>
 
             @foreach ($popularLodgings as $lodging)
                 <div class="m-4 col">
@@ -66,7 +66,7 @@
                         <a class="text-decoration-none text-black" href="{{ route('show', $lodging->id) }}">
                             <img src="{{ $lodging->image }}" class="card-img-top" width="200" height="200">
                             <h3 class="p-2">{{ $lodging->name }}</h3>
-                            <p class="p-2">{{ $lodging->created_at->diffForHumans() }} valoraciones</p>
+                            <p class="p-2">Total: {{ $lodging->ratings_count }}</p>
                         </a>
                     </div>
                 </div>
@@ -99,15 +99,15 @@
     </section>
     <section>
         <div class="m-4 p-2 row">
-            <h1>Alojamientos más populares</h1>
+            <h1>Alojamientos más reciente</h1>
 
-            @foreach ($popularLodgings as $lodging)
+            @foreach ($recentLodgings as $lodging)
                 <div class="m-4 col">
                     <div class="card" style="width: 18rem;">
                         <a class="text-decoration-none text-black" href="{{ route('show', $lodging->id) }}">
                             <img src="{{ $lodging->image }}" class="card-img-top" width="200" height="200">
                             <h3 class="p-2">{{ $lodging->name }}</h3>
-                            <p class="p-2">{{ $lodging->ratings_count }} Valorado</p>
+                            <p class="p-2">{{ $lodging->created_at->diffForHumans() }}</p>
                         </a>
                     </div>
 
@@ -136,7 +136,7 @@
                         <a class="text-decoration-none text-black" href="{{ route('show', $lodging->id) }}">
                             <img src="{{ $lodging->image }}" class="card-img-top" width="200" height="200">
                             <h3 class="p-2">{{ $lodging->name }}</h3>
-                            <p class="p-2">{{ $lodging->comments_count }} valoraciones</p>
+                            <p class="p-2">{{ $lodging->comments_count }} comentarios</p>
                         </a>
                     </div>
                 </div>

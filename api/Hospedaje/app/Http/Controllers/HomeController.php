@@ -12,7 +12,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-   
+
 
     /**
      * Show the application dashboard.
@@ -22,19 +22,18 @@ class HomeController extends Controller
     public function index()
     {
         $recentLodgings = Lodging::orderByDesc('created_at')
-        ->take(4) // Obtener los 5 alojamientos más recientes
-        ->get();
-
+            ->take(4)
+            ->get();
 
         $popularLodgings = Lodging::withCount('ratings')
-        ->orderByDesc('ratings_count')
-        ->take(4)
-        ->get();
+            ->orderByDesc('ratings_count')
+            ->take(4)
+            ->get();
 
         $popularLodgingsComments = Lodging::withCount('comments')
-        ->orderByDesc('comments_count')
-        ->take(4) // Obtener los 5 alojamientos más comentados
-        ->get();
+            ->orderByDesc('comments_count')
+            ->take(4)
+            ->get();
 
         return view('home', [
             'popularLodgings' => $popularLodgings,
