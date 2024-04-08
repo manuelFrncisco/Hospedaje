@@ -40,14 +40,14 @@
                                             <!-- Botones de acciones -->
                                             <a href="{{ route('calificacionEditar', ['id' => $rating->id]) }}"
                                                 class="btn btn-primary">Editar</a>
+                                            <a href="{{ route('ratingShow', ['id' => $rating->id]) }}"
+                                                class="btn btn-primary">Ver</a>
                                             <form action="{{ route('RatingDelete', ['id' => $rating->id]) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                                             </form>
-
-
                                         </td>
                                     </tr>
                                 @endforeach

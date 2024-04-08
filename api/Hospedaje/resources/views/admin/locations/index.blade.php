@@ -35,6 +35,8 @@
                                         <td>
                                             <!-- Botones de acciones -->
                                             <a href="{{route('localizacionEditar', ['id' => $location->id]) }}" class="btn btn-primary">Editar</a>
+                                            <a href="{{ route('locationShow', ['id' => $country->id]) }}"
+                                                class="btn btn-info">Ver</a>
                                             <form action="{{route('LocationDelete',  $location->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')

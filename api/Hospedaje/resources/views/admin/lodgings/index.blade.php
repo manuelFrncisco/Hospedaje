@@ -50,6 +50,8 @@
                                         <td>
                                             <!-- Botones de acciones -->
                                             <a href="{{route('alojamientoEditar', ['id' => $lodging->id]) }}" class="btn btn-primary">Editar</a>
+                                            <a href="{{ route('lodgingShow', ['id' => $country->id]) }}"
+                                                class="btn btn-info">Ver</a>
                                             <form action="{{route('LodgingDelete', ['id' => $lodging->id])}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
