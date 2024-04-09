@@ -4,14 +4,14 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            <h2 class="mt-4">Reservaciones</h2>
+            <h2 class="mt-4">Crear Reservacion</h2>
             <ol class="breadcrumb mb-4">
                 <a class="breadcrumb-item active" href="/admin">Atras</a>
             </ol>
-            <div class="card mb-4">
+            <div class="card mb-4 p-3">
                 <form method="POST" action="{{ route('ReservationCreate') }}">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group mt-2 mb-2">
                         <label for="lodging_id">Seleccione un alojamiento:</label>
                         <select class="form-control" id="lodging_id" name="lodging_id">
                             @foreach ($lodgings as $lodging)
@@ -19,15 +19,18 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-2 mb-2">
                         <label for="start_date">Fecha de inicio:</label>
                         <input type="date" id="start_date" name="start_date" class="form-control" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mt-2 mb-2">
                         <label for="end_date">Fecha de fin:</label>
                         <input type="date" id="end_date" name="end_date" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Reservar</button>
+                    <div class="mt-3">
+
+                        <button type="submit" class="btn btn-success">Reservar</button>
+                    </div>
                 </form>
                  
             </div>

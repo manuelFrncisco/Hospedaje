@@ -69,6 +69,6 @@ class LevelController extends Controller
             $level = Level::findOrFail($id);
             $level->delete();
             
-            return view("admin.levels.index");
+            return redirect()->route('admin.levels.index');
         }
 }

@@ -61,7 +61,7 @@ Route::middleware('checkUserRole')->group(function () {
     
     Route::get('/admin/calificacion', [RatingController::class, 'index'])->name('admin.ratings.index');
     Route::get('/admin/califiaciones/{id}',[RatingController::class,'ratingShow'])->name('ratingShow');
-    Route::get('/admin/calificacion/crear',[RatingController::class,'calificacionCrear'])->name('admin.ratings.create');
+    Route::get('/admin/calificacion/crear',[RatingController::class,'calificacionCrear'])->name('calificacionCrear');
     Route::get('/admin/calificaciones/editar/{id}', [RatingController::class, 'calificacionEditar'])->name('calificacionEditar');
     Route::post('/calificacion/crear',[RatingController::class, 'RatingCreate'])->name('RatingCreate');
     Route::put('/calificacion/editar/{id}',[RatingController::class, 'RatingEdit'])->name('RatingEdit');

@@ -10,13 +10,13 @@
                 <a class="breadcrumb-item active" href="/admin">Atras</a>
             </ol>
             <p>Total de Reservaciones: {{ $reservations->count() }}</p>
+            <div class="mb-3">
+            
+                <a type="submit" href="/admin/reservaciones/crear" class="btn btn-success">Crear Reservar</a>
+            </div>
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <div class="mb-3">
-                                <a type="submit" href="/admin/reservaciones/crear" class="btn btn-success">Crear Reservar</a>
-                        
-                        </div>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
@@ -42,14 +42,22 @@
                                         <td>{{ $reservation->updated_at }}</td>
                                         <td>
                                             <!-- Botones de acciones -->
-                                            <a href="{{route('ReservationEdit', ['id' => $reservation->id]) }}" class="btn btn-primary">Editar</a>
-                                            <a href="{{ route('ReservationShow', ['id' => $reservation->id]) }}"
-                                                class="btn btn-info">Ver</a>
-                                            <form action="{{route('ReservationDelete', ['id' => $reservation->id])}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                                            </form>
+                                            <div class="row m-1">
+                                                <div class="row m-1">
+
+                                                    <a href="{{route('ReservationEdit', ['id' => $reservation->id]) }}" class="btn btn-primary">Editar</a>
+                                                </div>
+                                                <div class="row m-1">
+
+                                                    <a href="{{ route('ReservationShow', ['id' => $reservation->id]) }}"
+                                                        class="btn btn-info">Ver</a>
+                                                    </div>
+                                                        <form action="{{route('ReservationDelete', ['id' => $reservation->id])}}" method="POST" class="row m-1">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                    </form>
+                                                </div>
                                             
                                             
                                         </td>
