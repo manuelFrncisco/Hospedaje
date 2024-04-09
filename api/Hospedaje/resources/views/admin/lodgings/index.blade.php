@@ -3,22 +3,20 @@
 
 @section('content')
 
-        <main>
-            <div class="container-fluid px-4">
-                <h2 class="mt-4">Alojamiento</h2>
-                <ol class="breadcrumb mb-4">
-                    <a class="breadcrumb-item active" href="/admin">Atras</a>
-                </ol>
-                <p>Total de Alojamientos: {{ $lodgings->count() }}</p>
-                <div class="mb-3">
-                    <a href="{{route('alojamientoCrear')}}" class="btn btn-success">Crear Alojamiento</a>
-
-                </div>
+    <main>
+        <div class="container-fluid px-4">
+            <h2 class="mt-4">Alojamiento</h2>
+            <ol class="breadcrumb mb-4">
+                <a class="breadcrumb-item active" href="/admin">Atras</a>
+            </ol>
+            <p>Total de Alojamientos: {{ $lodgings->count() }}</p>
+            <div class="mb-3">
+                <a href="{{ route('alojamientoCrear') }}" class="btn btn-success">Crear Alojamiento</a>
             </div>
             <div class="card mb-4">
                 <div class="card-body">
                     <div class="table-responsive">
-                        
+
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
@@ -39,26 +37,36 @@
                                     <tr>
                                         <td>{{ $lodging->id }}</td>
                                         <td>{{ $lodging->name }}</td>
-                                        <td>{{ $lodging->description}}</td>
-                                        <td><img src="{{ $lodging->image}}" height="100" width="100"></td>
-                                        <td>{{ $lodging->page}}</td>
-                                        <td>{{ $lodging->start_range}}</td>
-                                        <td>{{ $lodging->end_range}}</td>
-                                        <td>{{ $lodging->backroom}}</td>
+                                        <td>{{ $lodging->description }}</td>
+                                        <td><img src="{{ $lodging->image }}" height="100" width="100"></td>
+                                        <td>{{ $lodging->page }}</td>
+                                        <td>{{ $lodging->start_range }}</td>
+                                        <td>{{ $lodging->end_range }}</td>
+                                        <td>{{ $lodging->backroom }}</td>
                                         <td>{{ $lodging->location->streep }}</td>
                                         <td>{{ $lodging->user->name }}</td>
                                         <td>
                                             <!-- Botones de acciones -->
-                                            <a href="{{route('alojamientoEditar', ['id' => $lodging->id]) }}" class="btn btn-primary">Editar</a>
-                                            <a href="{{ route('lodgingShow', ['id' => $lodging->id]) }}"
-                                                class="btn btn-info">Ver</a>
-                                            <form action="{{route('LodgingDelete', ['id' => $lodging->id])}}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                                            </form>
-                                            
-                                            
+                                            <div class="row m-1">
+                                                <div class="row m-1">
+
+                                                    <a href="{{ route('alojamientoEditar', ['id' => $lodging->id]) }}"
+                                                        class="btn btn-primary">Editar</a>
+                                                </div>
+                                                <div class="row m-1">
+
+                                                    <a href="{{ route('lodgingShow', ['id' => $lodging->id]) }}"
+                                                        class="btn btn-info">Ver</a>
+                                                </div>
+                                                <form action="{{ route('LodgingDelete', ['id' => $lodging->id]) }}"
+                                                    method="POST" class="row m-1 ">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                </form>
+                                            </div>
+
+
                                         </td>
                                     </tr>
                                 @endforeach
@@ -67,7 +75,8 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
+    </main>
 
 
 @endsection()

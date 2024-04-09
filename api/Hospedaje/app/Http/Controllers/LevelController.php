@@ -61,7 +61,7 @@ class LevelController extends Controller
             $level->status = $request->input('status');
             $level->save();
         
-            return redirect('admin.levels.index');
+            return redirect()->route('admin.levels.index');
         }
 
         public function LevelDelete($id)

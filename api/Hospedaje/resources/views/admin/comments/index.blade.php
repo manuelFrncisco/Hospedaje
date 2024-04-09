@@ -35,17 +35,23 @@
                                         <td>{{ $comment->lodging->name }}</td>
                                         <td>
                                             <!-- Botones de acciones -->
-                                            <a href="{{ route('comentarioEditar', ['id' => $comment->id]) }}"
-                                                class="btn btn-primary">Editar</a>
-                                            <a href="{{ route('commentShow', ['id' => $comment->id]) }}"
-                                                class="btn btn-info">Ver</a>
-                                            <form action="{{ route('CommentDelete', ['id' => $comment->id]) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Eliminar</button>
-                                            </form>
+                                            <div class="row m-1">
+                                                <div class="row m-1">
+                                                    <a href="{{ route('comentarioEditar', ['id' => $comment->id]) }}"
+                                                        class="btn btn-primary">Editar</a>
+                                                </div>
+                                                <div class="row m-1">
+                                                    <a href="{{ route('commentShow', ['id' => $comment->id]) }}"
+                                                        class="btn btn-info">Ver</a>
+                                                </div>
+                                                <form action="{{ route('CommentDelete', ['id' => $comment->id]) }}"
+                                                    method="POST" class="row m-1">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                </form>
 
+                                            </div>
 
                                         </td>
                                     </tr>

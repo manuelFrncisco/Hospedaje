@@ -6,7 +6,7 @@
         <div class="container-fluid px-4">
             <h2 class="mt-4">Crear Reservacion</h2>
             <ol class="breadcrumb mb-4">
-                <a class="breadcrumb-item active" href="/admin">Atras</a>
+                <a class="breadcrumb-item active" href="/admin/reservaciones">Atras</a>
             </ol>
             <div class="card mb-4 p-3">
                 <form method="POST" action="{{ route('ReservationCreate') }}">

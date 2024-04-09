@@ -24,8 +24,13 @@ class LodgingController extends Controller
 
     public function alojamientoCrear()
     {
-        
-        return view('admin.lodgings.create');
+        $locations = Location::all();
+        return view('admin.lodgings.create', compact('locations'));
+    }
+
+    public function lodgingCrear()
+    {
+        return view('admin.logdgings.create');
     }
 
     public function alojamientoEditar($id)
