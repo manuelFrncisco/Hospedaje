@@ -77,7 +77,7 @@ Route::middleware('checkUserRole')->group(function () {
     
     Route::get('/admin/alojamiento', [LodgingController::class, 'index'])->name('admin.lodgings.index');
     Route::get('/admin/alojamiento/{id}', [LodgingController::class,'lodgingShow'])->name('lodgingShow');
-    Route::get('/admin/alojamiento/crear',[LodgingController::class,'alojamientoCrear'])->name('alojamientoCrear');
+    
     Route::get('/admin/alojamiento/editar/{id}',[LodgingController::class, 'alojamientoEditar'])->name('alojamientoEditar');
     Route::post('/alojamiento/crear',[LodgingController::class,'LodgingCreate'])->name('LodgingCreate');
     Route::post('/alojamiento/editar/{id}',[LodgingController::class, 'LodgingEdit'])->name('LodgingEdit');
