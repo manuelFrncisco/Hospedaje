@@ -24,6 +24,7 @@ class LodgingController extends Controller
 
     public function alojamientoCrear()
     {
+        
         return view('admin.lodgings.create');
     }
 

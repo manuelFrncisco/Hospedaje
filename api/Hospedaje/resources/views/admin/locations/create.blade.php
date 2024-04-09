@@ -1,4 +1,5 @@
 @extends('layouts.panel')
+@section('title', 'WelcomeNest - Admin')
 
 @section('content')
     <div class="container">
