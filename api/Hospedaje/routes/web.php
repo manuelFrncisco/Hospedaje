@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CountryController;
-use App\Http\Controllers\locationController;
+use App\Http\Controllers\LocationController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LodgingController;
 use App\Http\Controllers\OfertController;
@@ -61,19 +61,19 @@ Route::middleware('checkUserRole')->group(function () {
     
     Route::get('/admin/calificacion', [RatingController::class, 'index'])->name('admin.ratings.index');
     Route::get('/admin/califiaciones/{id}',[RatingController::class,'ratingShow'])->name('ratingShow');
-    Route::get('/admin/calificacion/crear',[RatingController::class,'calificacionCrear'])->name('calificacionCrear');
+    Route::get('/admin/calificacion/crear',[RatingController::class,'calificacionCrear'])->name('admin.ratings.create');
     Route::get('/admin/calificaciones/editar/{id}', [RatingController::class, 'calificacionEditar'])->name('calificacionEditar');
     Route::post('/calificacion/crear',[RatingController::class, 'RatingCreate'])->name('RatingCreate');
     Route::put('/calificacion/editar/{id}',[RatingController::class, 'RatingEdit'])->name('RatingEdit');
     Route::delete('/calificacion/eliminar/{id}',[RatingController::class,'RatingDelete'])->name('RatingDelete');
     
-    Route::get('/admin/localizacion', [locationController::class, 'index'])->name('admin.locations.index');
-    Route::get('/admin/localizacion/{id}', [locationController::class,'locationShow'])->name('locationShow');
-    Route::get('/admin/localizacion/crear',[locationController::class, 'localizacionCrear'])->name('localizacionCrear');
-    Route::get('/admin/localizacion/editar/{id}', [locationController::class, 'localizacionEditar'])->name('localizacionEditar');
-    Route::put('/localizacion/editar/{id}',[locationController::class, 'LocationEdit'])->name('LocationEdit');
-    Route::post('/localizacion/crear',[locationController::class, 'LocationCreate'])->name('LocationCreate');
-    Route::delete('/localizacion/eliminar/{id}',[locationController::class, 'LocationDelete'])->name('LocationDelete');
+    Route::get('/admin/localizacion', [LocationController::class, 'index'])->name('admin.locations.index');
+    Route::get('/admin/localizacion/{id}', [LocationController::class,'locationShow'])->name('locationShow');
+    Route::get('/admin/localizacion/crear',[LocationController::class, 'localizacionCrear'])->name('localizacionCrear');
+    Route::get('/admin/localizacion/editar/{id}', [LocationController::class, 'localizacionEditar'])->name('localizacionEditar');
+    Route::put('/localizacion/editar/{id}',[LocationController::class, 'LocationEdit'])->name('LocationEdit');
+    Route::post('/localizacion/crear',[LocationController::class, 'LocationCreate'])->name('LocationCreate');
+    Route::delete('/localizacion/eliminar/{id}',[LocationController::class, 'LocationDelete'])->name('LocationDelete');
     
     Route::get('/admin/alojamiento', [LodgingController::class, 'index'])->name('admin.lodgings.index');
     Route::get('/admin/alojamiento/{id}', [LodgingController::class,'lodgingShow'])->name('lodgingShow');

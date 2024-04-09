@@ -19,9 +19,10 @@
                     <input type="text" class="form-control" id="name" name="name" value="{{ $level->name }}" required>
                 </div>
                 <div class="mb-3">
-                    <label for="status" class="form-label">Estado</label>
-                    <input type="number" class="form-control" id="status" name="status" value="{{ $level->status }}" required>
+                    <label for="status" class="form-label">Estado (1-3)</label>
+                    <input type="number" class="form-control" id="status" name="status" value="{{ $level->status }}" required min="1" max="3">
                 </div>
+                
                 <button type="submit" class="btn btn-primary">Actualizar Nivel</button>
             </form>
         </div>

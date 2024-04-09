@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="mb-3">
-                                <a type="submit" href="/admin/reservaciones/crear" class="btn btn-success">Crear Comentario</a>
+                                <a type="submit" href="/admin/reservaciones/crear" class="btn btn-success">Crear Reservar</a>
                         
                         </div>
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
