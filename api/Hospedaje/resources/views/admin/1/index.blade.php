@@ -11,7 +11,7 @@
                 </ol>
                 <p>Total de Alojamientos: {{ $lodgings->count() }}</p>
                 <div class="mb-3">
-                    <a type="submit" href="{{route('alojamientoCrear')}}" class="btn btn-success">Crear Alojamiento</a>
+                    <a href="{{route('alojamientoCrear')}}" class="btn btn-success">Crear Alojamiento</a>
 
                 </div>
             </div>

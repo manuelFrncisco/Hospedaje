@@ -12,7 +12,7 @@
             <p>Total de Reservaciones: {{ $reservations->count() }}</p>
             <div class="mb-3">
             
-                <a type="submit" href="/admin/reservaciones/crear" class="btn btn-success">Crear Reservar</a>
+                <a href="/admin/reservaciones/crear" class="btn btn-success">Crear Reservar</a>
             </div>
             <div class="card mb-4">
                 <div class="card-body">

@@ -14,7 +14,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <div class="mb-3">
-                        <a type="submit" href="{{ route('paisCrear') }}" class="btn btn-success">Crear Paises</a>
+                        <a href="{{ route('paisCrear') }}" class="btn btn-success">Crear Paises</a>
                     </div>
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>

@@ -13,7 +13,7 @@
             <p>Total de Califiaciones: {{ $ratings->count() }}</p>
             
             <div class="mb-3">
-                <a type="submit" href="{{ route('calificacionCrear') }}" class="btn btn-success">Crear Comentario</a>
+                <a href="{{ route('calificacionCrear') }}" class="btn btn-success">Crear Comentario</a>
             </div>
             <div class="card mb-4">
                 <div class="card-body">
