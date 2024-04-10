@@ -30,6 +30,8 @@ class ReservationController extends Controller
         return view("admin.reservations.create", compact('lodgings'));
     }
 
+
+
     public function reservarEditar(Request $request, $id)
     {
         $data = $request->validate([

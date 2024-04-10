@@ -80,7 +80,7 @@ class AuthController extends Controller
     {
         if (auth()->check()) {
             $user = auth()->user();
-            $user->load('reservations');
+            $user->load('reservations.lodging');
             return response()->json([
                 'profile' => $user,
                 'message' => 'success'

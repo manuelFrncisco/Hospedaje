@@ -53,8 +53,8 @@ Route::middleware('checkUserRole')->group(function () {
     
     Route::get('/admin/reservaciones', [ReservationController::class, 'index'])->name('admin.reservations.index');
     Route::get('/admin/reservaciones/crear', [ReservationController::class, 'reservacionCrear'])->name('admin.reservations.create');
-    Route::get('/admin/reservaciones/{id}', [ReservationController::class, 'ReservationShow'])->name('ReservationShow');
     Route::post('reservaciones/crear', [ReservationController::class, 'ReservationCreate'])->name('ReservationCreate');
+    Route::get('/admin/reservaciones/{id}', [ReservationController::class, 'ReservationShow'])->name('ReservationShow');
     Route::get('/admin/reservaciones/editar/{id}',[ReservationController::class, 'ReservationEdit'])->name('ReservationEdit');
     Route::put('reservaciones/editar/{id}',[ReservationController::class, 'reservarEditar'])->name('reservarEditar');
     Route::delete('reservacion/eliminado/{id}', [ReservationController::class, 'ReservationDelete'])->name('ReservationDelete');
