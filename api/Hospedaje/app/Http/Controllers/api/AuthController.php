@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -89,6 +90,13 @@ class AuthController extends Controller
 
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+    }
+
+    public function index(Request $request)
+    {
+        $user = $request->user(); // Obtener el usuario autenticado
+        $reservations = Reservation::with('lodging')->where('user_id', $user->id)->get();
+        return response()->json($reservations);
     }
 
     public function update(Request $request)

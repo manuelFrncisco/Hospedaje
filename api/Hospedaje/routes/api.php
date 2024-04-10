@@ -69,3 +69,4 @@ Route::post('/login',[AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::get('/profile', [AuthController::class,'profile'])->middleware('auth:api');
 Route::post('/profile/update',[AuthController::class,'update'])->middleware('auth:api');
+Route::get('/profile/reservation', [AuthController::class, 'index'])->middleware('auth:api');
