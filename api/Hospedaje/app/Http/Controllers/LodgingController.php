@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Models\Lodging;
 use App\Models\Location;
@@ -101,8 +102,6 @@ class LodgingController extends Controller
         return redirect()->route('admin.lodgings.index');
     }
 
-
-
     public function LodgingDelete($id)
     {
         $lodging = Lodging::findOrFail($id);
@@ -110,4 +109,8 @@ class LodgingController extends Controller
 
         return redirect()->route('admin.lodgings.index');
     }
+
+    
+
 }
+

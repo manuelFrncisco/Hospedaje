@@ -14,12 +14,12 @@ class ReservationController extends Controller
 
         return view("admin.reservations.index", ['reservations' => $reservations]);
     }
-    
+
 
     public function ReservationShow($id)
     {
         $reservation = Reservation::findOrFail($id);
-        
+
         return view('admin.reservations.show', compact('reservation'));
     }
 
@@ -47,7 +47,6 @@ class ReservationController extends Controller
         return redirect()->route('admin.reservations.index')->with('success', 'Reserva actualizada correctamente');
     }
 
-
     public function ReservationEdit($id)
     {
         $reservation = Reservation::findOrFail($id);
@@ -57,7 +56,7 @@ class ReservationController extends Controller
     public function ReservationDelete($id)
     {
         $reservation = Reservation::findOrFail($id);
-        $reservation ->delete();
+        $reservation->delete();
 
         return redirect()->route('admin.reservations.index');
     }

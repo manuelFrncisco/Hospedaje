@@ -93,6 +93,29 @@ class ReservationController extends Controller
     }
 
 
+    public function showLodgingByReservationId($id)
+    {
+        $reservation = Reservation::find($id);
+
+        if (!$reservation) {
+            return response()->json(['error' => 'Reserva no encontrada'], 404);
+        }
+        $lodging = Lodging::find($reservation->lodging_id);
+
+        if (!$lodging) {
+            return response()->json(['error' => 'Lodging no encontrado para esta reserva'], 404);
+        }
+
+        $formattedLodging = [
+            'id' => $lodging->id,
+            'name' => $lodging->name,
+            'description' => $lodging->description,
+            'image' => $lodging->image,
+        ];
+
+        return response()->json($formattedLodging);
+    }
+
 
     public function update(Request $request, $id)
     {

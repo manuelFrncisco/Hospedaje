@@ -59,9 +59,11 @@ Route::get('/rating/lodging/{id}', [RatingController::class, 'ratingAverage']);
 Route::post('/rating/create', [RatingController::class, 'store']);
 
 Route::get('/reservations',[ReservationController::class,'list']);
-Route::get('/reservations/{id}',[ReservationController::class,'show']);
 Route::post('/reserva/create',[ReservationController::class,'create'])->middleware('auth:api');
+Route::get('/reservations/{id}',[ReservationController::class,'show']);
 Route::post('/reservations/{id}',[ReservationController::class,'updated']);
+
+Route::get('/reservations/{id}/lodgings', [ReservationController::class, 'showLodgingByReservationId'])->middleware('auth:api');
 
 Route::post('/login',[AuthController::class, 'login']);
 Route::post('/register', [AuthController::class, 'register']);
