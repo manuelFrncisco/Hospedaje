@@ -34,18 +34,17 @@ class ReservationController extends Controller
 
     public function show($id)
     {
-        $reservation = Reservation::where('id', '=', $id)->first();
+        $reservation = Reservation::with('lodging')->findOrFail($id);
+
 
 
         $object = [
             "id" => $reservation->id,
             "user_id" => $reservation->user_id,
-            "location_id" => $reservation->location_id,
             "lodging_id" => $reservation->lodging_id,
-            "rating_id" => $reservation->rating_id,
-            "date" => $reservation->date,
-            "created_at" => $reservation->created_at,
-            "updated_at" => $reservation->updated_at,
+            "start_date" => $reservation->start_date,
+            "end_date"=> $reservation->end_date,
+            "lodging" => $reservation->lodging,
         ];
 
         return response()->json($object);
