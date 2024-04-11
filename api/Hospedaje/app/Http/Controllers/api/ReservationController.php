@@ -11,7 +11,7 @@ class ReservationController extends Controller
 {
     public function list()
     {
-        $reservations = Reservation::all();
+        $reservations = Reservation::with('lodging')->get();
 
         $list = [];
         foreach ($reservations as $reservation) {
@@ -23,13 +23,14 @@ class ReservationController extends Controller
                 "end_date" => $reservation->end_date,
                 "created_at" => $reservation->created_at,
                 "updated_at" => $reservation->updated_at,
+                "lodging" => $reservation->lodging, // Incluye los datos del alojamiento
             ];
             array_push($list, $object);
         }
 
         return response()->json($list);
-
     }
+
 
     public function show($id)
     {
